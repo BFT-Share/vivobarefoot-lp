@@ -1,26 +1,33 @@
-import React from 'react'
-import Header from './components/Header'
-import Hero from './components/Hero'
-import Philosophy from './components/Philosophy'
-import LineupSlider from './components/LineupSlider'
-import StoreLocator from './components/StoreLocator'
-import FAQ from './components/FAQ'
-import Footer from './components/Footer'
-import './App.css'
-import './index.css'
+import { useState } from 'react';
+import Header from './components/Header';
+import Hero from './components/Hero';
+import ProductRail from './components/ProductRail';
+import Activity from './components/Activity';
+import Benefits from './components/Benefits';
+import FitFeelFlex from './components/FitFeelFlex';
+import PromoCards from './components/PromoCards';
+import Store from './components/Store';
+import FAQ from './components/FAQ';
+import Footer from './components/Footer';
+import './App.css';
 
-function App() {
+export default function App() {
+  const [tab, setTab] = useState('all');
+
   return (
-    <div className="app">
+    <>
       <Header />
-      <Hero />
-      <Philosophy />
-      <LineupSlider />
-      <StoreLocator />
-      <FAQ />
+      <main>
+        <Hero />
+        <ProductRail tab={tab} setTab={setTab} />
+        <Activity setTab={setTab} />
+        <Benefits />
+        <FitFeelFlex />
+        <PromoCards />
+        <Store />
+        <FAQ />
+      </main>
       <Footer />
-    </div>
-  )
+    </>
+  );
 }
-
-export default App

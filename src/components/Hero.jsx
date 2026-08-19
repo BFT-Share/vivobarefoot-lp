@@ -1,47 +1,27 @@
-import React from 'react';
-import '../App.css';
+import { scrollToId } from '../lib/nav';
 
-const Hero = () => {
-  const handleScrollTo = (e, targetId) => {
-    e.preventDefault();
-    const element = document.getElementById(targetId);
-    if (element) {
-      const offsetTop = element.offsetTop - 80;
-      window.scrollTo({
-        top: offsetTop,
-        behavior: 'smooth'
-      });
-    }
-  };
-
+export default function Hero() {
   return (
-    <section id="home" className="hero">
-      <div className="hero-content animate-fade-in-up">
-        <h1>We Are Nature.<br/>Nature Is Us.</h1>
-        <p>
-          VIVOBarefoot is now officially available in Thailand at Barefootinc. 
-          Step back into evolution and experience the ultimate natural health and barefoot movement.
-        </p>
-        <div className="hero-buttons">
-          <a 
-            href="#store" 
-            className="btn-accent" 
-            onClick={(e) => handleScrollTo(e, 'store')}
-          >
-            Visit K Village Store
+    <section className="hero" id="top">
+      <picture>
+        <source media="(max-width: 767px)" srcSet="/img/hero-mobile.jpg" />
+        <img className="hero__bg" src="/img/hero.jpg" alt="" fetchPriority="high" />
+      </picture>
+
+      <div className="hero__scrim" aria-hidden="true" />
+
+      <div className="hero__inner container">
+        <h1 className="hero__title">Free your feet</h1>
+        <h2 className="hero__sub">Wide. Thin. Flexible. Now in Bangkok.</h2>
+        <div className="hero__cta">
+          <a className="btn btn--ghost" href="#shop" onClick={(e) => scrollToId(e, 'shop')}>
+            Shop the range
           </a>
-          <a 
-            href="#catalog" 
-            className="btn-primary" 
-            style={{ border: '1px solid rgba(255,255,255,0.4)', background: 'rgba(255,255,255,0.1)' }}
-            onClick={(e) => handleScrollTo(e, 'catalog')}
-          >
-            Explore Footwear
+          <a className="btn btn--ghost" href="#visit" onClick={(e) => scrollToId(e, 'visit')}>
+            Visit K Village
           </a>
         </div>
       </div>
     </section>
   );
-};
-
-export default Hero;
+}
