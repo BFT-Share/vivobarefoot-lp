@@ -4,7 +4,7 @@ const COLUMNS = [
   {
     title: 'Shop',
     links: [
-      { label: 'The range', id: 'shop' },
+      { label: 'The line up', id: 'shop' },
       { label: 'Live', id: 'shop' },
       { label: 'Train', id: 'shop' },
       { label: 'Trail', id: 'shop' },
@@ -24,7 +24,6 @@ const COLUMNS = [
       { label: 'K Village store', id: 'visit' },
       { label: 'Get directions', href: STORE.maps },
       { label: `Line ${STORE.line}`, href: STORE.lineUrl },
-      { label: STORE.phone, href: STORE.phoneHref },
     ],
   },
 ];
@@ -37,18 +36,32 @@ export default function Footer() {
       <div className="container">
         <div className="footer__top">
           <div className="footer__brand">
-            <img
-              src="/brand/vivo-wordmark-white.png"
-              alt="VIVOBAREFOOT"
-              width="177"
-              height="32"
-              loading="lazy"
-            />
+            <div className="footer__lockup">
+              <img
+                className="footer__retailer"
+                src="/logo.png"
+                alt="Barefootinc Thailand"
+                width="150"
+                height="34"
+                loading="lazy"
+              />
+              <span className="footer__rule" aria-hidden="true" />
+              <img
+                className="footer__vivo"
+                src="/brand/vivo-wordmark-white.png"
+                alt="VIVOBAREFOOT"
+                width="177"
+                height="32"
+                loading="lazy"
+              />
+            </div>
+
             <p>
               Barefootinc is the official VIVOBAREFOOT and Vibram FiveFingers
               distributor in Thailand. Wide, thin and flexible footwear, and the
               people to help you move in it.
             </p>
+
             <a
               className="btn btn--ghost btn--sm"
               href={STORE.lineUrl}
@@ -57,6 +70,15 @@ export default function Footer() {
             >
               Add us on Line
             </a>
+
+            <img
+              className="footer__bcorp"
+              src="/brand/bcorp-white.png"
+              alt="Certified B Corporation"
+              width="72"
+              height="45"
+              loading="lazy"
+            />
           </div>
 
           {COLUMNS.map((col) => (
@@ -66,7 +88,7 @@ export default function Footer() {
                 {col.links.map((l) => (
                   <li key={l.label}>
                     {l.href ? (
-                      <a href={l.href} target={l.href.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer">
+                      <a href={l.href} target="_blank" rel="noopener noreferrer">
                         {l.label}
                       </a>
                     ) : (

@@ -1,8 +1,14 @@
-// Prices are the Thai retail prices from the Barefootinc VIVOBAREFOOT
-// range sheet (Downloads/Media/Artwork/VIVO/VIVO BAREFOOT_ALL PRODUCTS.jpg),
-// not the .com global prices — those differ market to market.
+// Prices and gender are the Thai retail figures from the Barefootinc
+// VIVOBAREFOOT range sheet, not the .com global prices — those differ
+// market to market. Gender sits on the colourway because it varies within
+// a model (Primus Lite IV Storm Cloud is men's only; Gobi III is Obsidian
+// men's / Limestone women's).
 
 const thb = (n) => `THB ${n.toLocaleString('en-US')}.00`;
+
+// each colourway ships a numbered gallery: /products/<slug>-1.jpg ... -N.jpg
+const gallery = (slug, count) =>
+  Array.from({ length: count }, (_, i) => `/products/${slug}-${i + 1}.jpg`);
 
 export const products = [
   {
@@ -12,9 +18,24 @@ export const products = [
     activity: 'EVERYDAY / FUNCTIONAL FITNESS / TRAINING',
     tabs: ['train', 'live'],
     colours: [
-      { name: 'Obsidian', gender: "Men's / Women's", img: '/products/primus-lite-iv-obsidian.jpg', alt: '/products/primus-lite-iv-obsidian-alt.jpg', hex: '#2b2b2d' },
-      { name: 'Mineral', gender: "Men's / Women's", img: '/products/primus-lite-iv-mineral.jpg', alt: '/products/primus-lite-iv-mineral-alt.jpg', hex: '#e9e9e7' },
-      { name: 'Storm Cloud', gender: "Men's", img: '/products/primus-lite-iv-storm.jpg', alt: '/products/primus-lite-iv-storm-alt.jpg', hex: '#b9cbd8' },
+      {
+        name: 'Obsidian',
+        gender: "Men's / Women's",
+        hex: '#2b2b2d',
+        images: gallery('primus-lite-iv-obsidian', 7),
+      },
+      {
+        name: 'Mineral',
+        gender: "Men's / Women's",
+        hex: '#e9e9e7',
+        images: gallery('primus-lite-iv-mineral', 7),
+      },
+      {
+        name: 'Storm Cloud',
+        gender: "Men's",
+        hex: '#b9cbd8',
+        images: gallery('primus-lite-iv-storm', 7),
+      },
     ],
   },
   {
@@ -25,7 +46,12 @@ export const products = [
     tabs: ['train'],
     badge: 'NATURAL MATERIALS',
     colours: [
-      { name: 'Eclipse', gender: "Men's", img: '/products/primus-lite-knit-natural.jpg', alt: '/products/primus-lite-knit-natural-alt.jpg', hex: '#3a3f44' },
+      {
+        name: 'Eclipse',
+        gender: "Men's",
+        hex: '#3a3f44',
+        images: gallery('primus-lite-knit-natural', 7),
+      },
     ],
   },
   {
@@ -35,7 +61,12 @@ export const products = [
     activity: 'TRAIL RUNNING / OFF-ROAD',
     tabs: ['trail'],
     colours: [
-      { name: 'Obsidian', gender: "Men's", img: '/products/primus-trail-fg.jpg', alt: '/products/primus-trail-fg-alt.jpg', hex: '#1c1c1e' },
+      {
+        name: 'Obsidian',
+        gender: "Men's",
+        hex: '#1c1c1e',
+        images: gallery('primus-trail-fg', 7),
+      },
     ],
   },
   {
@@ -45,7 +76,12 @@ export const products = [
     activity: 'WEIGHT + STRENGTH TRAINING / FUNCTIONAL FITNESS',
     tabs: ['train'],
     colours: [
-      { name: 'Eclipse', gender: "Men's", img: '/products/motus-strength-ii.jpg', alt: '/products/motus-strength-ii-alt.jpg', hex: '#232326' },
+      {
+        name: 'Eclipse',
+        gender: "Men's",
+        hex: '#232326',
+        images: gallery('motus-strength-ii', 7),
+      },
     ],
   },
   {
@@ -55,8 +91,18 @@ export const products = [
     activity: 'EVERYDAY',
     tabs: ['live'],
     colours: [
-      { name: 'Obsidian', gender: "Men's", img: '/products/gobi-iii-obsidian.jpg', alt: '/products/gobi-iii-obsidian-alt.jpg', hex: '#141414' },
-      { name: 'Limestone', gender: "Women's", img: '/products/gobi-iii-limestone.jpg', alt: '/products/gobi-iii-limestone-alt.jpg', hex: '#ded9d0' },
+      {
+        name: 'Obsidian',
+        gender: "Men's",
+        hex: '#141414',
+        images: gallery('gobi-iii-obsidian', 7),
+      },
+      {
+        name: 'Limestone',
+        gender: "Women's",
+        hex: '#ded9d0',
+        images: gallery('gobi-iii-limestone', 7),
+      },
     ],
   },
   {
@@ -66,7 +112,12 @@ export const products = [
     activity: 'EVERYDAY / COURT',
     tabs: ['live'],
     colours: [
-      { name: 'Bright White', gender: "Women's", img: '/products/geo-court-iv.jpg', alt: '/products/geo-court-iv-alt.jpg', hex: '#f2f2f0' },
+      {
+        name: 'Bright White',
+        gender: "Women's",
+        hex: '#f2f2f0',
+        images: gallery('geo-court-iv', 7),
+      },
     ],
   },
   {
@@ -76,7 +127,12 @@ export const products = [
     activity: 'EVERYDAY / WORK',
     tabs: ['live'],
     colours: [
-      { name: 'Obsidian', gender: "Men's", img: '/products/ra-iv.jpg', alt: '/products/ra-iv-alt.jpg', hex: '#111111' },
+      {
+        name: 'Obsidian',
+        gender: "Men's",
+        hex: '#111111',
+        images: gallery('ra-iv', 6),
+      },
     ],
   },
 ];

@@ -31,7 +31,7 @@ export default function Activity({ setTab }) {
   return (
     <section className="section section--tight">
       <div className="container">
-        <h2 className="h-section h-section--center">Shop by activity</h2>
+        <h2 className="h-section h-section--center">Select by activity</h2>
         <div className="grid grid--tiles">
           {TILES.map((t) => (
             <a key={t.id} className="tile" href="#shop" onClick={(e) => pick(e, t.id)}>
@@ -41,7 +41,7 @@ export default function Activity({ setTab }) {
               <div className="tile__body">
                 <h3 className="tile__label">{t.label}</h3>
                 <p>{t.copy}</p>
-                <span className="link-arrow">Shop {t.label.toLowerCase()}</span>
+                <span className="link-arrow">See {t.label.toLowerCase()}</span>
               </div>
             </a>
           ))}

@@ -1,5 +1,5 @@
 export const NAV = [
-  { id: 'shop', label: 'Shop' },
+  { id: 'shop', label: 'Products' },
   { id: 'why', label: 'Why Barefoot' },
   { id: 'visit', label: 'Visit Us' },
   { id: 'faq', label: 'FAQ' },
@@ -8,15 +8,23 @@ export const NAV = [
 export const STORE = {
   name: 'Barefootinc Flagship Store',
   address:
-    'G Floor, Room B109, K Village Shopping Mall, Sukhumvit 26, Khlong Toei, Bangkok 10110',
-  hours: 'Every day, 10:00 – 20:00',
-  line: '@barefootinc',
-  phone: '+66 2 661 2993',
-  phoneHref: 'tel:+6626612993',
+    'K Village, Room 09 / 1st Floor, Building B, Sukhumvit 26, Khlong Tan, Khlong Toei, Bangkok 10110',
+  line: '@barefootinc.th',
+  lineUrl: 'https://lin.ee/5iJqsKw',
   maps: 'https://maps.app.goo.gl/QDGiLmfQCXt3Z2nM6',
-  lineUrl: 'https://line.me/R/ti/p/@barefootinc',
   shopUrl: 'https://barefootinc.jp',
 };
+
+// Sunday first, as displayed in store
+export const HOURS = [
+  { day: 'Sunday', time: '10:00 – 21:00' },
+  { day: 'Monday', time: '11:00 – 20:00' },
+  { day: 'Tuesday', time: '11:00 – 20:00' },
+  { day: 'Wednesday', time: '11:00 – 20:00' },
+  { day: 'Thursday', time: '11:00 – 20:00' },
+  { day: 'Friday', time: '10:00 – 21:00' },
+  { day: 'Saturday', time: '10:00 – 21:00' },
+];
 
 export const HEADER_OFFSET = 92; // announcement bar + header
 

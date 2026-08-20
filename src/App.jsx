@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
+import BrandIntro from './components/BrandIntro';
 import ProductRail from './components/ProductRail';
 import Activity from './components/Activity';
 import Benefits from './components/Benefits';
 import FitFeelFlex from './components/FitFeelFlex';
-import PromoCards from './components/PromoCards';
 import Store from './components/Store';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
@@ -19,11 +19,11 @@ export default function App() {
       <Header />
       <main>
         <Hero />
+        <BrandIntro />
         <ProductRail tab={tab} setTab={setTab} />
         <Activity setTab={setTab} />
         <Benefits />
         <FitFeelFlex />
-        <PromoCards />
         <Store />
         <FAQ />
       </main>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { NAV, STORE, scrollToId } from '../lib/nav';
+import { NAV, scrollToId } from '../lib/nav';
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -36,7 +36,8 @@ export default function Header() {
     <>
       <div className="announce">
         <p>
-          VIVOBAREFOOT is now in Thailand — Barefootinc, K Village Bangkok
+          Vivobarefoot is now available in Thailand - Barefootinc @ K Village,
+          Bangkok
         </p>
       </div>
 
@@ -83,11 +84,10 @@ export default function Header() {
           <div className="header__actions">
             <a
               className="btn btn--dark btn--sm"
-              href={STORE.shopUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#visit"
+              onClick={(e) => go(e, 'visit')}
             >
-              Shop online
+              Store access
             </a>
             <button
               className={`burger${open ? ' is-open' : ''}`}
@@ -111,13 +111,8 @@ export default function Header() {
             </a>
           ))}
         </nav>
-        <a
-          className="btn btn--dark"
-          href={STORE.shopUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Shop online
+        <a className="btn btn--dark" href="#visit" onClick={(e) => go(e, 'visit')}>
+          Store access
         </a>
       </div>
     </>

@@ -1,18 +1,24 @@
 const PILLARS = [
   {
     key: 'Fit',
-    lede: 'For natural stability',
-    copy: 'Foot-shaped fit enables toes to splay, improving balance and providing a stable base of support.',
+    lede: 'Natural fit supports',
+    title: 'Balance and posture',
+    img: '/img/fit.jpg',
+    copy: 'A wide, foot-shaped toe box lets your toes splay and play, supporting a stable foundation. That encourages better posture, helps reduce joint pain, and promotes balance for every walk, hike, run and workout.',
   },
   {
     key: 'Feel',
-    lede: 'For natural sensory feedback',
-    copy: 'A thin sole allows the thousands of nerve endings in each foot to give the brain the feedback it needs to move with skill.',
+    lede: 'Natural feel enables',
+    title: 'Coordination and agility',
+    img: '/img/feel.jpg',
+    copy: 'Your feet are central to your proprioceptive system, which provides 70% of your brain’s movement information. Thin soles transmit more sensory feedback, improving movement skill and helping you avoid trips and slips.',
   },
   {
     key: 'Flex',
-    lede: 'For natural movement',
-    copy: 'Flexible footwear lets muscles and tendons load and recoil, so your feet get stronger and put a natural spring in every step.',
+    lede: 'Natural flex unlocks',
+    title: 'Strength and movement',
+    img: '/img/flex.jpg',
+    copy: 'Flexible footwear lets your muscles and tendons load and recoil, putting spring in your step and promoting natural strength and mobility. Six months in Vivos increases foot strength by 57%.',
   },
 ];
 
@@ -21,15 +27,20 @@ export default function FitFeelFlex() {
     <section className="section pillars">
       <div className="container">
         <h2 className="h-display pillars__head">Rewild your feet</h2>
+
         <div className="grid grid--pillars">
           {PILLARS.map((p) => (
-            <div className="pillar" key={p.key}>
-              <h3 className="pillar__key">{p.key}</h3>
+            <article className="pillar" key={p.key}>
+              <div className="pillar__media">
+                <img src={p.img} alt="" loading="lazy" />
+              </div>
               <p className="pillar__lede">{p.lede}</p>
+              <h3 className="pillar__title">{p.title}</h3>
               <p className="pillar__copy">{p.copy}</p>
-            </div>
+            </article>
           ))}
         </div>
+
         <p className="pillars__foot">
           The best bit of technology to go in a shoe is the human foot.
         </p>

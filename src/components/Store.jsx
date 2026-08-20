@@ -1,19 +1,16 @@
-import { STORE } from '../lib/nav';
-
-const DETAILS = [
-  { label: 'Store', value: `${STORE.name} — ${STORE.address}` },
-  { label: 'Opening hours', value: STORE.hours },
-  { label: 'Line official', value: STORE.line },
-  { label: 'Phone', value: STORE.phone, href: STORE.phoneHref },
-];
+import { useState } from 'react';
+import { HOURS, STORE } from '../lib/nav';
+import Modal from './Modal';
 
 export default function Store() {
+  const [map, setMap] = useState(false);
+
   return (
     <section className="section store" id="visit">
       <div className="container">
         <div className="store__grid">
           <div className="store__copy">
-            <h2 className="h-section">Try them on in Bangkok</h2>
+            <h2 className="h-section">Try them on @ Barefootinc K Village</h2>
             <p className="store__lede">
               Barefoot sizing is not the same as your normal shoe size. Come in, get
               measured, and let our team walk you through fit, feel and the
@@ -21,12 +18,38 @@ export default function Store() {
             </p>
 
             <dl className="store__details">
-              {DETAILS.map((d) => (
-                <div className="store__detail" key={d.label}>
-                  <dt>{d.label}</dt>
-                  <dd>{d.href ? <a href={d.href}>{d.value}</a> : d.value}</dd>
-                </div>
-              ))}
+              <div className="store__detail">
+                <dt>Address</dt>
+                <dd>
+                  {STORE.address}
+                  <button className="store__maplink" onClick={() => setMap(true)}>
+                    Location map
+                  </button>
+                </dd>
+              </div>
+
+              <div className="store__detail">
+                <dt>Opening hours</dt>
+                <dd>
+                  <ul className="store__hours">
+                    {HOURS.map((h) => (
+                      <li key={h.day}>
+                        <span>{h.day}</span>
+                        <span>{h.time}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </dd>
+              </div>
+
+              <div className="store__detail">
+                <dt>Line official</dt>
+                <dd>
+                  <a href={STORE.lineUrl} target="_blank" rel="noopener noreferrer">
+                    {STORE.line}
+                  </a>
+                </dd>
+              </div>
             </dl>
 
             <div className="store__cta">
@@ -60,6 +83,14 @@ export default function Store() {
           </div>
         </div>
       </div>
+
+      <Modal open={map} onClose={() => setMap(false)} label="K Village floor plan" wide>
+        <img
+          className="modal__image"
+          src="/img/store-map.jpg"
+          alt="K Village floor plan showing the Barefootinc store on the 1st floor of Building B"
+        />
+      </Modal>
     </section>
   );
 }

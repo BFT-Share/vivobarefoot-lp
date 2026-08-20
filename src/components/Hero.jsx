@@ -12,13 +12,13 @@ export default function Hero() {
 
       <div className="hero__inner container">
         <h1 className="hero__title">Free your feet</h1>
-        <h2 className="hero__sub">Wide. Thin. Flexible. Now in Bangkok.</h2>
+        <h2 className="hero__sub">Your barefoot journey starts here</h2>
         <div className="hero__cta">
           <a className="btn btn--ghost" href="#shop" onClick={(e) => scrollToId(e, 'shop')}>
-            Shop the range
+            See models
           </a>
           <a className="btn btn--ghost" href="#visit" onClick={(e) => scrollToId(e, 'visit')}>
-            Visit K Village
+            Visit the store
           </a>
         </div>
       </div>

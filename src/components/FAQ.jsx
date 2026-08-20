@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Modal from './Modal';
 
 const ITEMS = [
   {
@@ -11,7 +12,8 @@ const ITEMS = [
   },
   {
     q: 'What size should I buy?',
-    a: 'Barefoot sizing rarely matches your usual size, and it varies by model. Come to the store in K Village and we will measure both feet, check your toe splay and fit you properly. It takes about fifteen minutes and saves a return.',
+    a: 'Barefoot sizing rarely matches your usual size, and it varies by model. Measure both feet from heel to longest toe and compare against the chart — then add roughly a thumb’s width of room. Better still, come to the store in K Village and we will measure you and fit you properly. It takes about fifteen minutes and saves a return.',
+    sizeChart: true,
   },
   {
     q: 'Are barefoot shoes suitable for running and the gym?',
@@ -19,7 +21,7 @@ const ITEMS = [
   },
   {
     q: 'Can I try VIVOBAREFOOT on in Bangkok?',
-    a: 'Yes. Barefootinc at K Village, Sukhumvit 26, is the official VIVOBAREFOOT store in Thailand. The full range is in stock to try on, every day from 10:00 to 20:00.',
+    a: 'Yes. Barefootinc at K Village, Sukhumvit 26, is the official VIVOBAREFOOT store in Thailand. The full range is in stock to try on, seven days a week.',
   },
   {
     q: 'What does it mean that VIVOBAREFOOT is a B Corp?',
@@ -29,6 +31,7 @@ const ITEMS = [
 
 export default function FAQ() {
   const [open, setOpen] = useState(0);
+  const [sizeChart, setSizeChart] = useState(false);
 
   return (
     <section className="section faq" id="faq">
@@ -49,13 +52,36 @@ export default function FAQ() {
                   <span className="faq__sign" aria-hidden="true" />
                 </button>
                 <div className="faq__a">
-                  <p>{item.a}</p>
+                  <div className="faq__aInner">
+                    <p>{item.a}</p>
+                    {item.sizeChart && (
+                      <button
+                        className="btn btn--outline btn--sm faq__chart"
+                        onClick={() => setSizeChart(true)}
+                      >
+                        Check the size chart
+                      </button>
+                    )}
+                  </div>
                 </div>
               </div>
             );
           })}
         </div>
       </div>
+
+      <Modal
+        open={sizeChart}
+        onClose={() => setSizeChart(false)}
+        label="VIVOBAREFOOT size guide"
+        wide
+      >
+        <img
+          className="modal__image"
+          src="/img/size-guide.jpg"
+          alt="VIVOBAREFOOT footwear size guide, men's and women's"
+        />
+      </Modal>
     </section>
   );
 }

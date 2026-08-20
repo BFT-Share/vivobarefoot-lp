@@ -1,8 +1,7 @@
-import { scrollToId } from '../lib/nav';
+import CompareSlider from './CompareSlider';
 
 const STATS = [
   { figure: '57%', copy: 'stronger feet in six months*' },
-  { figure: '200,000', copy: 'nerve endings in every pair of feet' },
   { figure: '1M+', copy: 'people already moving in Vivos' },
 ];
 
@@ -36,10 +35,14 @@ export default function Benefits() {
                 <p className="stat__copy">{s.copy}</p>
               </div>
             ))}
-            <a className="btn btn--dark" href="#faq" onClick={(e) => scrollToId(e, 'faq')}>
-              Why barefoot is better
-            </a>
           </div>
+        </div>
+
+        <div className="benefits__compare">
+          <p className="benefits__compareLead">
+            Same foot, two shoes. Drag to see what a conventional shoe does to it.
+          </p>
+          <CompareSlider />
         </div>
 
         <p className="footnote">
