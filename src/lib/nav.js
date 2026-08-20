@@ -13,6 +13,8 @@ export const STORE = {
   lineUrl: 'https://lin.ee/5iJqsKw',
   maps: 'https://maps.app.goo.gl/QDGiLmfQCXt3Z2nM6',
   shopUrl: 'https://barefootinc.jp',
+  instagram: 'https://www.instagram.com/barefootinc.th/',
+  facebook: 'https://www.facebook.com/barefootincthailand',
 };
 
 // Sunday first, as displayed in store

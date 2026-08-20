@@ -71,6 +71,38 @@ export default function Footer() {
               Add us on Line
             </a>
 
+            <ul className="footer__social">
+              <li>
+                <a
+                  href={STORE.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Barefootinc on Instagram"
+                >
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <rect x="2.5" y="2.5" width="19" height="19" rx="5.4" />
+                    <circle cx="12" cy="12" r="4.6" />
+                    <circle className="dot" cx="17.6" cy="6.4" r="1.25" />
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a
+                  href={STORE.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Barefootinc on Facebook"
+                >
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path
+                      className="solid"
+                      d="M13.5 21.9V13.5h2.83l.42-3.29H13.5V8.11c0-.95.27-1.6 1.63-1.6h1.74V3.57a23.6 23.6 0 0 0-2.54-.13c-2.51 0-4.23 1.53-4.23 4.35v2.42H7.26v3.29h2.84v8.4z"
+                    />
+                  </svg>
+                </a>
+              </li>
+            </ul>
+
             <img
               className="footer__bcorp"
               src="/brand/bcorp-white.png"
