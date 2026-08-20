@@ -504,7 +504,7 @@
 
 .intro__bcorp img {
   flex: 0 0 auto;
-  width: 66px;
+  width: 132px;
   height: auto;
 }
 
@@ -714,6 +714,13 @@
   line-height: 1.43;
   color: var(--ink-strong);
   white-space: nowrap;
+}
+
+.card__colour {
+  margin-top: 2px;
+  font-size: 13px;
+  line-height: 1.35;
+  color: var(--ink-muted);
 }
 
 .card__activity {
@@ -1228,6 +1235,10 @@
   }
 }
 
+.store__headBreak {
+  display: block;
+}
+
 .store__lede {
   max-width: 46ch;
 }
@@ -1456,7 +1467,7 @@
 .footer__bcorp {
   display: block;
   margin-top: 26px;
-  width: 72px;
+  width: 140px;
   height: auto;
 }
 

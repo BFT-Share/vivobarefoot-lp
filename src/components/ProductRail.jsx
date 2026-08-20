@@ -52,13 +52,13 @@ function ProductCard({ product, onOpen }) {
         {product.badge && <span className="card__badge">{product.badge}</span>}
         <img
           className="card__img"
-          src={colour.images[0]}
+          src={colour.images[1] || colour.images[0]}
           alt={`${product.name} — ${colour.name}`}
           loading="lazy"
         />
         <img
           className="card__img card__img--alt"
-          src={colour.images[1] || colour.images[0]}
+          src={colour.images[0]}
           alt=""
           aria-hidden="true"
           loading="lazy"
@@ -80,7 +80,7 @@ function ProductCard({ product, onOpen }) {
                 title={v.name}
                 aria-current={n === c}
               >
-                <img src={v.images[0]} alt="" loading="lazy" />
+                <img src={v.images[1] || v.images[0]} alt="" loading="lazy" />
               </button>
             </li>
           ))}
@@ -93,6 +93,7 @@ function ProductCard({ product, onOpen }) {
           </h3>
           <span className="card__price">{product.price}</span>
         </div>
+        <p className="card__colour">{colour.name}</p>
         <p className="card__activity">{product.activity}</p>
       </div>
     </article>
@@ -154,7 +155,7 @@ export default function ProductRail({ tab, setTab }) {
         <Gallery
           product={gallery.product}
           colour={gallery.colour}
-          startAt={0}
+          startAt={1}
           onClose={() => setGallery(null)}
         />
       )}

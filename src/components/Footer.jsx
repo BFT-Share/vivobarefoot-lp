@@ -57,9 +57,9 @@ export default function Footer() {
             </div>
 
             <p>
-              Barefootinc is the official VIVOBAREFOOT and Vibram FiveFingers
-              distributor in Thailand. Wide, thin and flexible footwear, and the
-              people to help you move in it.
+              Barefootinc is the official VIVOBAREFOOT distributor in Thailand.
+              Wide, thin and flexible footwear, and the people to help you move in
+              it.
             </p>
 
             <a

@@ -5,13 +5,14 @@
    serve. Oswald and Saira Semi Condensed are the closest freely
    licensable matches. Width of "HAMBURGEFONTSIV" at 100px:
      Knockout 50  734  ->  Oswald               733
-     Knockout 31  870  ->  Saira Semi Condensed 853
-   (Arial = 1011 for scale.)
+     Knockout 31  870  ->  IBM Plex Sans Cond.  858
+   (Arial = 1011 for scale.) The price string "THB 9,150.00" at 18px is
+   102px in Knockout 31 and 102px in IBM Plex Sans Condensed.
    ------------------------------------------------------------------ */
 
 :root {
   --font-display: 'Oswald', 'Arial Narrow', Arial, sans-serif;
-  --font-body: 'Saira Semi Condensed', 'Arial Narrow', Arial, sans-serif;
+  --font-body: 'IBM Plex Sans Condensed', 'Arial Narrow', Arial, sans-serif;
 
   --black: #000000;
   --ink: #333333;          /* reference body colour */

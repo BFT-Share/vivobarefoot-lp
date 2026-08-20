@@ -10,7 +10,10 @@ export default function Store() {
       <div className="container">
         <div className="store__grid">
           <div className="store__copy">
-            <h2 className="h-section">Try them on @ Barefootinc K Village</h2>
+            <h2 className="h-section">
+              Try them on
+              <span className="store__headBreak">@ Barefootinc K Village</span>
+            </h2>
             <p className="store__lede">
               Barefoot sizing is not the same as your normal shoe size. Come in, get
               measured, and let our team walk you through fit, feel and the
