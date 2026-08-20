@@ -152,6 +152,16 @@
   letter-spacing: 0.02em;
 }
 
+/* on phones the bar wraps mid-phrase, so break it at the store name instead */
+@media (max-width: 767px) {
+  .announce__dash {
+    display: none;
+  }
+  .announce__wrap {
+    display: block;
+  }
+}
+
 .header {
   position: sticky;
   top: 0;
@@ -384,7 +394,7 @@
 
 .hero__bg {
   object-fit: cover;
-  object-position: center 38%;
+  object-position: center 45%;
 }
 
 .hero__scrim {
@@ -1024,6 +1034,53 @@
 .compare__top {
   position: absolute;
   inset: 0;
+}
+
+/* The labels used to be baked into the artwork at a size that fell apart on a
+   phone. They are real text now: same placement as the reference on desktop,
+   moved out to the frame corners below 768px where the artwork leaves no room. */
+.compare__label {
+  position: absolute;
+  top: 27%;
+  right: 22.3%;
+  text-align: right;
+  color: var(--ink-strong);
+  pointer-events: none;
+}
+
+.compare__eyebrow {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(11px, 1.05vw, 15px);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.compare__title {
+  display: block;
+  margin-top: 0.15em;
+  font-family: var(--font-display);
+  font-size: clamp(19px, 3vw, 42px);
+  font-weight: 600;
+  line-height: 0.95;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+@media (max-width: 767px) {
+  .compare__label {
+    top: 5%;
+    right: auto;
+    left: 4%;
+    text-align: left;
+  }
+  .compare__label--vivo {
+    left: auto;
+    right: 4%;
+    text-align: right;
+  }
 }
 
 .compare__divider {

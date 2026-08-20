@@ -36,8 +36,9 @@ export default function Header() {
     <>
       <div className="announce">
         <p>
-          Vivobarefoot is now available in Thailand - Barefootinc @ K Village,
-          Bangkok
+          <span>Vivobarefoot is now available in Thailand</span>
+          <span className="announce__dash"> - </span>
+          <span className="announce__wrap">Barefootinc @ K Village, Bangkok</span>
         </p>
       </div>
 

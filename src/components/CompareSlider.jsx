@@ -53,8 +53,17 @@ export default function CompareSlider() {
         onTouchStart={start}
       >
         <img className="compare__img" src="/img/compare-normal.jpg" alt="X-ray of a foot inside a conventional cushioned shoe" />
+        <p className="compare__label">
+          <span className="compare__eyebrow">Shoe-shaped problem</span>
+          <span className="compare__title">Normal shoe</span>
+        </p>
+
         <div className="compare__top" style={{ clipPath: `inset(0 0 0 ${pct}%)` }}>
           <img className="compare__img" src="/img/compare-vivo.jpg" alt="X-ray of a foot inside a Vivobarefoot shoe" />
+          <p className="compare__label compare__label--vivo">
+            <span className="compare__eyebrow">Shoe-shaped solution</span>
+            <span className="compare__title">Vivobarefoot</span>
+          </p>
         </div>
 
         <div className="compare__divider" style={{ left: `${pct}%` }} aria-hidden="true">
