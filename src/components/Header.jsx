@@ -53,20 +53,13 @@ export default function Header() {
               height="34"
             />
             <span className="header__rule" aria-hidden="true" />
-            <span className="lockup">
-              <img
-                className="lockup__mark"
-                src="/brand/vivo-wordmark.png"
-                alt="VIVOBAREFOOT"
-                width="122"
-                height="22"
-              />
-              <span className="lockup__label" aria-hidden="true">
-                Official
-                <br />
-                store
-              </span>
-            </span>
+            <img
+              className="lockup__mark"
+              src="/brand/vivo-wordmark.png"
+              alt="VIVOBAREFOOT"
+              width="122"
+              height="22"
+            />
           </a>
 
           <nav className="header__nav" aria-label="Main">

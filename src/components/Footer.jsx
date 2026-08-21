@@ -29,8 +29,6 @@ const COLUMNS = [
 ];
 
 export default function Footer() {
-  const year = new Date().getFullYear();
-
   return (
     <footer className="footer">
       <div className="container">
@@ -136,10 +134,6 @@ export default function Footer() {
         </div>
 
         <div className="footer__bottom">
-          <p>
-            © {year} Barefootinc Thailand. VIVOBAREFOOT® is a registered trademark of
-            Vivobarefoot Ltd.
-          </p>
           <nav className="footer__mini" aria-label="Sections">
             {NAV.map(({ id, label }) => (
               <a key={id} href={`#${id}`} onClick={(e) => scrollToId(e, id)}>

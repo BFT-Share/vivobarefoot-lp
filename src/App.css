@@ -198,26 +198,9 @@
   background: var(--line-strong);
 }
 
-.lockup {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-}
-
 .lockup__mark {
   width: auto;
   height: 22px;
-}
-
-.lockup__label {
-  font-family: var(--font-display);
-  font-size: 9px;
-  line-height: 1.15;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  padding-left: 9px;
-  border-left: 1px solid var(--line-strong);
 }
 
 /* the full co-brand lockup does not fit beside the burger on phones */
@@ -231,14 +214,8 @@
   .header__retailer {
     height: 22px;
   }
-  .lockup {
-    gap: 0;
-  }
   .lockup__mark {
     height: 18px;
-  }
-  .lockup__label {
-    display: none;
   }
 }
 
@@ -443,8 +420,28 @@
   margin-top: 32px;
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 14px;
   justify-content: center;
+}
+
+/* both CTAs sized to the longer label so the pair reads as one unit */
+.hero__cta .btn {
+  flex: 0 0 auto;
+  min-width: 224px;
+  padding-inline: 24px;
+}
+
+@media (max-width: 520px) {
+  .hero__cta {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 280px;
+    margin-inline: auto;
+  }
+  .hero__cta .btn {
+    min-width: 0;
+    width: 100%;
+  }
 }
 
 /* ==================================================================
@@ -1538,7 +1535,6 @@
   flex-wrap: wrap;
   gap: 12px 24px;
   align-items: center;
-  justify-content: space-between;
   font-size: 13px;
 }
 
