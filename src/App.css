@@ -823,10 +823,21 @@
   transform: translate(-50%, -50%) rotate(-45deg);
 }
 
+/* an image-only dialog wraps its picture, so a portrait sheet is capped by
+   viewport height rather than stretched to the panel's width */
+.modal__panel--image {
+  width: auto;
+  max-width: min(1080px, 96vw);
+  overflow: visible;
+}
+
 .modal__image {
   display: block;
-  width: 100%;
+  width: auto;
+  max-width: 100%;
+  max-height: 88vh;
   height: auto;
+  margin-inline: auto;
 }
 
 .gallery {

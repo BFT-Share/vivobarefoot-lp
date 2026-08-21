@@ -165,6 +165,7 @@ export default function ProductRail({ tab, setTab }) {
         onClose={() => setSizeChart(false)}
         label="VIVOBAREFOOT size guide"
         wide
+        image
       >
         <img className="modal__image" src="/img/size-guide.jpg" alt="VIVOBAREFOOT footwear size guide, men's and women's" />
       </Modal>

@@ -87,7 +87,7 @@ export default function Store() {
         </div>
       </div>
 
-      <Modal open={map} onClose={() => setMap(false)} label="K Village floor plan" wide>
+      <Modal open={map} onClose={() => setMap(false)} label="K Village floor plan" wide image>
         <img
           className="modal__image"
           src="/img/store-map.jpg"

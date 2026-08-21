@@ -75,6 +75,7 @@ export default function FAQ() {
         onClose={() => setSizeChart(false)}
         label="VIVOBAREFOOT size guide"
         wide
+        image
       >
         <img
           className="modal__image"

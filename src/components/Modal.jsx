@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
  * Backdrop dialog. Clicking anywhere that is not the panel closes it, as does
  * Escape — the panel itself stops the click from reaching the backdrop.
  */
-export default function Modal({ open, onClose, label, children, wide = false }) {
+export default function Modal({ open, onClose, label, children, wide = false, image = false }) {
   const panel = useRef(null);
 
   useEffect(() => {
@@ -32,7 +32,9 @@ export default function Modal({ open, onClose, label, children, wide = false }) 
       onClick={onClose}
     >
       <div
-        className={`modal__panel${wide ? ' modal__panel--wide' : ''}`}
+        className={`modal__panel${wide ? ' modal__panel--wide' : ''}${
+          image ? ' modal__panel--image' : ''
+        }`}
         ref={panel}
         onClick={(e) => e.stopPropagation()}
       >
