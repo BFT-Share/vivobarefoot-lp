@@ -26,7 +26,7 @@ export default function FitFeelFlex() {
   return (
     <section className="section pillars">
       <div className="container">
-        <h2 className="h-display pillars__head">Rewild your feet</h2>
+        <h2 className="h-display pillars__head">WHY Vivobarefoot？</h2>
 
         <div className="grid grid--pillars">
           {PILLARS.map((p) => (
