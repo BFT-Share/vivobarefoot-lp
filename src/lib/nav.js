@@ -1,5 +1,4 @@
 export const NAV = [
-  { id: 'shop', label: 'Products' },
   { id: 'lineup', label: 'Lineup' },
   { id: 'why', label: 'Why Barefoot' },
   { id: 'visit', label: 'Visit Us' },
@@ -10,6 +9,10 @@ export const STORE = {
   name: 'Barefootinc Flagship Store',
   address:
     'K Village, Room 09 / 1st Floor, Building B, Sukhumvit 26, Khlong Tan, Khlong Toei, Bangkok 10110',
+  phone: '088-984-2485',
+  phoneHref: 'tel:+66889842485',
+  access:
+    'K Village is between Sukhumvit 26 and Rama 4 Road. By train, get off at BTS Phrom Phong (Exit 4) and take a bike taxi — about 1km.',
   line: '@barefootinc.th',
   lineUrl: 'https://lin.ee/5iJqsKw',
   maps: 'https://maps.app.goo.gl/QDGiLmfQCXt3Z2nM6',

@@ -1,4 +1,6 @@
-// Copied from vivo-lineup-amber.vercel.app (#store tab, English copy). Store-carried colourways only.
+// Built from vivo-lineup-amber.vercel.app data (English copy) + "Vivo Price List.png".
+// Price-list colours/genders/prices are authoritative; in-store / coming-soon colours not on the
+// price list are kept (unlisted: true). Event-only colourways are excluded.
 export const LINEUP = [
   {
     "name": "GEO COURT IV",
@@ -29,8 +31,8 @@ export const LINEUP = [
     "range": [
       {
         "name": "Bright White",
-        "W": "store",
-        "M": "event"
+        "W": "stock",
+        "M": "stock"
       },
       {
         "name": "Obsidian",
@@ -42,11 +44,12 @@ export const LINEUP = [
     "gl_url": {},
     "cw": [
       {
-        "code": "209062-01",
+        "code": "209062-01 / 309062-01",
         "codes": [
-          "209062-01"
+          "209062-01",
+          "309062-01"
         ],
-        "g": "W",
+        "g": "MW",
         "price": 6120,
         "colour": "Bright White",
         "imgs": [
@@ -55,7 +58,7 @@ export const LINEUP = [
           "/lineup/209062-01_back.jpg",
           "/lineup/209062-01_inside.jpg"
         ],
-        "status": "store"
+        "status": "stock"
       }
     ]
   },
@@ -92,13 +95,13 @@ export const LINEUP = [
     "range": [
       {
         "name": "Obsidian",
-        "W": "store",
-        "M": "new"
+        "W": "",
+        "M": "stock"
       },
       {
         "name": "Limestone",
-        "W": "store",
-        "M": "store"
+        "W": "stock",
+        "M": "stock"
       },
       {
         "name": "Tan",
@@ -111,8 +114,8 @@ export const LINEUP = [
       },
       {
         "name": "Sand/Fig",
-        "W": "new",
-        "M": "new"
+        "W": "stock",
+        "M": "stock"
       },
       {
         "name": "Limestone/Seaborne",
@@ -125,7 +128,7 @@ export const LINEUP = [
       },
       {
         "name": "Triple Obsidian",
-        "M": "store"
+        "M": "stock"
       }
     ],
     "range_note": null,
@@ -136,20 +139,20 @@ export const LINEUP = [
     },
     "cw": [
       {
-        "code": "209123-01",
+        "code": "309123-01",
         "codes": [
-          "209123-01"
+          "309123-01"
         ],
-        "g": "W",
+        "g": "M",
         "price": 5990,
         "colour": "Obsidian",
         "imgs": [
-          "/lineup/209123-01_side.jpg",
-          "/lineup/209123-01_pair.jpg",
-          "/lineup/209123-01_back.jpg",
-          "/lineup/209123-01_inside.jpg"
+          "/lineup/309123-01_side.jpg",
+          "/lineup/309123-01_pair.jpg",
+          "/lineup/309123-01_back.jpg",
+          "/lineup/309123-01_inside.jpg"
         ],
-        "status": "store"
+        "status": "stock"
       },
       {
         "code": "209123-02 / 309123-02",
@@ -166,7 +169,7 @@ export const LINEUP = [
           "/lineup/209123-02_back.jpg",
           "/lineup/209123-02_inside.jpg"
         ],
-        "status": "store"
+        "status": "stock"
       },
       {
         "code": "309123-07",
@@ -182,7 +185,21 @@ export const LINEUP = [
           "/lineup/309123-07_back.jpg",
           "/lineup/309123-07_inside.jpg"
         ],
-        "status": "store"
+        "status": "stock",
+        "unlisted": true
+      },
+      {
+        "code": "209123-05 / 309123-05",
+        "codes": [
+          "209123-05",
+          "309123-05"
+        ],
+        "g": "MW",
+        "price": 5990,
+        "colour": "Sand/Fig",
+        "imgs": [],
+        "status": "stock",
+        "unlisted": true
       }
     ]
   },
@@ -227,27 +244,27 @@ export const LINEUP = [
     "range": [
       {
         "name": "Obsidian",
-        "W": "store",
-        "M": "store"
+        "W": "stock",
+        "M": "stock"
       },
       {
         "name": "Midnight",
-        "W": "new",
-        "M": "new"
+        "W": "stock",
+        "M": "stock"
       },
       {
         "name": "Mineral",
-        "W": "store",
-        "M": "store"
+        "W": "stock",
+        "M": "stock"
       },
       {
         "name": "Dusty Rose",
-        "W": "new"
+        "W": "stock"
       },
       {
         "name": "Storm Cloud",
-        "W": "store",
-        "M": "store"
+        "W": "",
+        "M": "stock"
       }
     ],
     "range_note": null,
@@ -272,7 +289,7 @@ export const LINEUP = [
           "/lineup/209253-01_back.jpg",
           "/lineup/209253-01_inside.jpg"
         ],
-        "status": "store"
+        "status": "stock"
       },
       {
         "code": "209253-04 / 309253-04",
@@ -287,15 +304,14 @@ export const LINEUP = [
           "/lineup/209253-04_side.jpg",
           "/lineup/209253-04_pair.jpg"
         ],
-        "status": "store"
+        "status": "stock"
       },
       {
-        "code": "209253-07 / 309253-05",
+        "code": "309253-05",
         "codes": [
-          "209253-07",
           "309253-05"
         ],
-        "g": "MW",
+        "g": "M",
         "price": 5100,
         "colour": "Storm Cloud",
         "imgs": [
@@ -304,7 +320,137 @@ export const LINEUP = [
           "/lineup/209253-07_back.jpg",
           "/lineup/209253-07_inside.jpg"
         ],
-        "status": "store"
+        "status": "stock"
+      },
+      {
+        "code": "209253-03 / 309253-03",
+        "codes": [
+          "209253-03",
+          "309253-03"
+        ],
+        "g": "MW",
+        "price": 5100,
+        "colour": "Midnight",
+        "imgs": [
+          "/lineup/209253-03_side.jpg",
+          "/lineup/209253-03_pair.jpg",
+          "/lineup/209253-03_back.jpg",
+          "/lineup/209253-03_inside.jpg"
+        ],
+        "status": "stock"
+      },
+      {
+        "code": "209253-05",
+        "codes": [
+          "209253-05"
+        ],
+        "g": "W",
+        "price": 5100,
+        "colour": "Dusty Rose",
+        "imgs": [
+          "/lineup/209253-05_side.jpg",
+          "/lineup/209253-05_pair.jpg",
+          "/lineup/209253-05_back.jpg",
+          "/lineup/209253-05_inside.jpg"
+        ],
+        "status": "stock"
+      }
+    ]
+  },
+  {
+    "name": "PRIMUS TRAIL III ALL WEATHER FG",
+    "cat": "trail",
+    "tagline": "Foot-first all-weather trail running footwear",
+    "intro": "The Primus Trail III All Weather FG is a water-resistant evolution of our popular trail running model, the Primus Trail FG. Lightweight, durable and flexible, it is designed for nimble running on hard, firm-ground trails. Made with high-performance recycled, vegan* materials, it is ready for trail running and hiking in wet, chilly conditions.",
+    "feats": [
+      {
+        "t": "Firm Ground (FG) outsole",
+        "d": "Stay steady on any ground."
+      },
+      {
+        "t": "Ortholite insole",
+        "d": "The Active Ortholite Performance insole is made from 98% recycled PU foam, helping reduce waste and the use of virgin plastic."
+      },
+      {
+        "t": "Tough rubber compound",
+        "d": "A strong rubber compound delivers excellent grip and high abrasion resistance."
+      },
+      {
+        "t": "Vegan*",
+        "d": "Main materials are synthetic, not animal-derived."
+      },
+      {
+        "t": "",
+        "d": "Made with water-repellent materials, but not waterproof. Water repellency on the fabric surface may gradually decrease with continuous use in prolonged wet conditions or with age. Depending on condition and use, consider cleaning off dirt and caring for it with a water-repellent spray."
+      }
+    ],
+    "en": {
+      "d": "",
+      "out": "Firm Ground Outsole",
+      "sole": "3",
+      "tread": "2.5",
+      "wM": "315",
+      "wW": "220",
+      "fit": "True to size"
+    },
+    "weight": {
+      "g": "W",
+      "eu": "38",
+      "grams": "220"
+    },
+    "note": null,
+    "range": [
+      {
+        "name": "Obsidian",
+        "W": "stock",
+        "M": "stock"
+      },
+      {
+        "name": "Dark Olive",
+        "W": "",
+        "M": ""
+      },
+      {
+        "name": "Pebble",
+        "W": "",
+        "M": ""
+      },
+      {
+        "name": "Laurel Wreath",
+        "W": "",
+        "M": ""
+      },
+      {
+        "name": "Moss",
+        "W": "",
+        "M": ""
+      },
+      {
+        "name": "Dark Olive/White",
+        "W": "",
+        "M": ""
+      }
+    ],
+    "range_note": null,
+    "jp_url": "https://vivobarefoot.co.jp/products/primus-trail-iii-all-weather-fg-womens",
+    "gl_url": {
+      "W": "https://www.vivobarefoot.com/rw/primus-trail-iii-all-weather-fg-womens",
+      "M": "https://www.vivobarefoot.com/rw/primus-trail-iii-all-weather-fg-mens"
+    },
+    "cw": [
+      {
+        "code": "209305-01 / 309305-01",
+        "codes": [
+          "209305-01",
+          "309305-01"
+        ],
+        "g": "MW",
+        "price": 6360,
+        "colour": "Obsidian",
+        "imgs": [
+          "/lineup/209305-01_side.jpg"
+        ],
+        "status": "stock"
       }
     ]
   },
@@ -360,27 +506,27 @@ export const LINEUP = [
       },
       {
         "name": "Eclipse",
-        "W": "event",
-        "M": "store"
+        "W": "stock",
+        "M": "stock"
       },
       {
         "name": "Skyway",
         "W": "",
-        "M": "event"
+        "M": ""
       },
       {
         "name": "Arctic Wolf",
-        "W": "event",
+        "W": "",
         "M": ""
       },
       {
         "name": "Sepia Rose",
-        "W": "new"
+        "W": "stock"
       },
       {
         "name": "Storm Cloud",
-        "W": "event",
-        "M": "event"
+        "W": "",
+        "M": ""
       }
     ],
     "range_note": null,
@@ -391,20 +537,37 @@ export const LINEUP = [
     },
     "cw": [
       {
-        "code": "309648-05",
+        "code": "209548-05 / 309648-05",
         "codes": [
+          "209548-05",
           "309648-05"
         ],
-        "g": "M",
+        "g": "MW",
         "price": 7480,
         "colour": "Eclipse",
         "imgs": [
-          "/lineup/309648-05_side.jpg",
-          "/lineup/309648-05_pair.jpg",
-          "/lineup/309648-05_back.jpg",
-          "/lineup/309648-05_inside.jpg"
+          "/lineup/209548-05_side.jpg",
+          "/lineup/209548-05_pair.jpg",
+          "/lineup/209548-05_back.jpg",
+          "/lineup/209548-05_inside.jpg"
         ],
-        "status": "store"
+        "status": "stock"
+      },
+      {
+        "code": "209548-08",
+        "codes": [
+          "209548-08"
+        ],
+        "g": "W",
+        "price": 7480,
+        "colour": "Sepia Rose",
+        "imgs": [
+          "/lineup/209548-08_side.jpg",
+          "/lineup/209548-08_pair.jpg",
+          "/lineup/209548-08_back.jpg",
+          "/lineup/209548-08_inside.jpg"
+        ],
+        "status": "stock"
       }
     ]
   },
@@ -445,8 +608,8 @@ export const LINEUP = [
     "range": [
       {
         "name": "Tan",
-        "W": "event",
-        "M": "store"
+        "W": "",
+        "M": "stock"
       },
       {
         "name": "Obsidian Cracked Leather",
@@ -481,7 +644,8 @@ export const LINEUP = [
         "imgs": [
           "/lineup/309553-01_side.jpg"
         ],
-        "status": "store"
+        "status": "stock",
+        "unlisted": true
       }
     ]
   },
@@ -523,13 +687,13 @@ export const LINEUP = [
       },
       {
         "name": "Coconut",
-        "W": "new",
-        "M": "new"
+        "W": "stock",
+        "M": "stock"
       },
       {
         "name": "Eclipse",
-        "W": "store",
-        "M": "store"
+        "W": "",
+        "M": "stock"
       },
       {
         "name": "Fig",
@@ -554,19 +718,36 @@ export const LINEUP = [
     },
     "cw": [
       {
-        "code": "209576-03 / 309576-03",
+        "code": "309576-03",
         "codes": [
-          "209576-03",
           "309576-03"
         ],
-        "g": "MW",
+        "g": "M",
         "price": 5780,
         "colour": "Eclipse",
         "imgs": [
           "/lineup/209576-03_side.jpg",
           "/lineup/209576-03_pair.jpg"
         ],
-        "status": "store"
+        "status": "stock"
+      },
+      {
+        "code": "209576-02 / 309576-02",
+        "codes": [
+          "209576-02",
+          "309576-02"
+        ],
+        "g": "MW",
+        "price": 5780,
+        "colour": "Coconut",
+        "imgs": [
+          "/lineup/309576-02_side.jpg",
+          "/lineup/309576-02_pair.jpg",
+          "/lineup/309576-02_back.jpg",
+          "/lineup/309576-02_inside.jpg"
+        ],
+        "status": "stock",
+        "unlisted": true
       }
     ]
   },
@@ -607,18 +788,18 @@ export const LINEUP = [
     "range": [
       {
         "name": "Mineral",
-        "W": "event",
-        "M": "event"
+        "W": "",
+        "M": ""
       },
       {
         "name": "Obsidian",
-        "W": "event",
-        "M": "store"
+        "W": "",
+        "M": "stock"
       },
       {
         "name": "Insignia Blue",
-        "W": "event",
-        "M": "event"
+        "W": "",
+        "M": ""
       },
       {
         "name": "Insignia Blue/Gum",
@@ -627,8 +808,8 @@ export const LINEUP = [
       },
       {
         "name": "Silver Birch",
-        "W": "event",
-        "M": "event"
+        "W": "",
+        "M": ""
       }
     ],
     "range_note": null,
@@ -649,7 +830,7 @@ export const LINEUP = [
         "imgs": [
           "/lineup/309600-03_side.jpg"
         ],
-        "status": "store"
+        "status": "stock"
       }
     ]
   },
@@ -689,7 +870,7 @@ export const LINEUP = [
     "range": [
       {
         "name": "Obsidian",
-        "M": "store",
+        "M": "stock",
         "W": ""
       },
       {
@@ -721,7 +902,165 @@ export const LINEUP = [
           "/lineup/305102-01_back.jpg",
           "/lineup/305102-01_inside.jpg"
         ],
-        "status": "store"
+        "status": "stock"
+      }
+    ]
+  },
+  {
+    "name": "PRIMUS SPORT IV PRESCHOOL",
+    "cat": "kids",
+    "tagline": "An everyday-adventure shoe for active kids",
+    "intro": "The classic barefoot shoe for little feet, now softer, more flexible and more comfortable, yet tough enough to play in all day. The breathable upper is 100% recycled polyester mesh with vegan* materials.",
+    "feats": [
+      {
+        "t": "Kids Urban Play outsole",
+        "d": "Grip and flexibility for children who are still developing their balance."
+      },
+      {
+        "t": "No insole",
+        "d": "Closer to the ground for a near-barefoot feel."
+      },
+      {
+        "t": "Breathable mesh",
+        "d": "Light, airy and comfortable."
+      },
+      {
+        "t": "Easy hook-and-loop closure",
+        "d": "Water-resistant build with non-absorbent materials."
+      }
+    ],
+    "en": {},
+    "weight": {
+      "g": "K",
+      "eu": "",
+      "grams": "107"
+    },
+    "note": null,
+    "range": [
+      {
+        "name": "Ombre",
+        "K": "stock"
+      }
+    ],
+    "range_note": null,
+    "jp_url": "https://vivobarefoot.co.jp/products/primus-sport-iv-pre-school",
+    "gl_url": {},
+    "cw": [
+      {
+        "code": "165459-05",
+        "codes": [
+          "165459-05"
+        ],
+        "g": "K",
+        "price": 2720,
+        "colour": "Ombre",
+        "imgs": [
+          "/lineup/165459-05_side.jpg",
+          "/lineup/165459-05_pair.jpg",
+          "/lineup/165459-05_back.jpg",
+          "/lineup/165459-05_inside.jpg"
+        ],
+        "status": "stock"
+      }
+    ]
+  },
+  {
+    "name": "PRIMUS TRAIL KNIT FG JUNIORS",
+    "cat": "kids",
+    "tagline": "A tough sneaker for any trail",
+    "intro": "Our popular adult trail shoe in a mini version. Simple and versatile, with a vegan knit upper that wraps the foot like a sock, keeping out grit and sand while staying breathable.",
+    "feats": [
+      {
+        "t": "Kids Outdoor Adventure outsole",
+        "d": "Durable and flexible, made for outdoor play."
+      },
+      {
+        "t": "Vegan",
+        "d": ""
+      },
+      {
+        "t": "No insole",
+        "d": "Closer to the ground for a barefoot feel."
+      }
+    ],
+    "en": {},
+    "weight": null,
+    "note": null,
+    "range": [
+      {
+        "name": "Eclipse",
+        "K": "stock"
+      }
+    ],
+    "range_note": null,
+    "jp_url": "https://vivobarefoot.co.jp/products/primus-trail-knit-fg-kids",
+    "gl_url": {},
+    "cw": [
+      {
+        "code": "115099-01",
+        "codes": [
+          "115099-01"
+        ],
+        "g": "K",
+        "price": 3400,
+        "colour": "Eclipse",
+        "imgs": [
+          "/lineup/105099-01_side.jpg",
+          "/lineup/105099-01_pair.jpg",
+          "/lineup/105099-01_back.jpg",
+          "/lineup/105099-01_inside.jpg"
+        ],
+        "status": "stock"
+      }
+    ]
+  },
+  {
+    "name": "PRIMUS TRAIL KNIT FG KIDS",
+    "cat": "kids",
+    "tagline": "A tough sneaker for any trail",
+    "intro": "Our popular adult trail shoe in a mini version. Simple and versatile, with a vegan knit upper that wraps the foot like a sock, keeping out grit and sand while staying breathable.",
+    "feats": [
+      {
+        "t": "Kids Outdoor Adventure outsole",
+        "d": "Durable and flexible, made for outdoor play."
+      },
+      {
+        "t": "Vegan",
+        "d": ""
+      },
+      {
+        "t": "No insole",
+        "d": "Closer to the ground for a barefoot feel."
+      }
+    ],
+    "en": {},
+    "weight": null,
+    "note": null,
+    "range": [
+      {
+        "name": "Eclipse",
+        "K": "stock"
+      }
+    ],
+    "range_note": null,
+    "jp_url": "https://vivobarefoot.co.jp/products/primus-trail-knit-fg-kids",
+    "gl_url": {},
+    "cw": [
+      {
+        "code": "105099-01",
+        "codes": [
+          "105099-01"
+        ],
+        "g": "K",
+        "price": 3200,
+        "colour": "Eclipse",
+        "imgs": [
+          "/lineup/105099-01_side.jpg",
+          "/lineup/105099-01_pair.jpg",
+          "/lineup/105099-01_back.jpg",
+          "/lineup/105099-01_inside.jpg"
+        ],
+        "status": "stock"
       }
     ]
   }

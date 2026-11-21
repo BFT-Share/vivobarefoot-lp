@@ -2,23 +2,91 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { LINEUP, LINEUP_TEXT as L } from '../data/lineup';
 import './Lineup.css';
 
-// Ported from vivo-lineup-amber.vercel.app/#store (the "In store" tab).
+// Ported from vivo-lineup-amber.vercel.app — the "In store" and "Coming soon" tabs
+// merged into one in-stock list. Event-only colourways are not included.
 
 const CATS = ['training', 'running', 'trail', 'everyday', 'kids'];
 const CATNAME = { training: 'Training', running: 'Running', trail: 'Trail', everyday: 'Everyday', kids: 'Kids' };
+const GLABEL = { M: "Men's", W: "Women's", K: 'Kids' };
 const GENDERS = [
   { v: 'all', label: L.allG },
-  { v: 'W', label: L.women },
-  { v: 'M', label: L.men },
-  { v: 'K', label: L.kids },
+  { v: 'M', label: GLABEL.M },
+  { v: 'W', label: GLABEL.W },
+  { v: 'K', label: GLABEL.K },
 ];
-const KIND = { store: 'r', event: 'e', new: 'nw' };
-const KIND_LABEL = { store: L.store, event: L.event, new: L.isNew };
+const KIND = { stock: 'r' };
+const NOTE =
+  "Every model and colour below is in stock. Colours are listed separately for men's and women's sizes — tap a colour to see it. Prices are list prices in Thai baht.";
 
 const fmt = (n) => n.toLocaleString('en-US');
 const gMatch = (cg, g) => g === 'all' || cg === g || (cg === 'MW' && (g === 'W' || g === 'M'));
 const fitText = (f) => (!f ? '' : /large/i.test(f) ? L.fitLarge : /true/i.test(f) ? L.fitTrue : f);
 const weightText = (w) => `${w.grams}g` + (w.eu ? ` (${w.g === 'W' ? 'WOMENS' : 'MENS'} EU${w.eu})` : '');
+
+// Product code of a colourway in a given gender size, or null if not stocked.
+function codeFor(cw, g) {
+  if (cw.g === 'MW') return g === 'W' ? cw.codes[0] : g === 'M' ? cw.codes[1] : null;
+  return cw.g === g ? cw.codes[0] : null;
+}
+
+// Colourways split into one row per gender: [{ g, items: [{ cw, g, code }] }]
+function genderRows(cws, filter = 'all') {
+  return ['M', 'W', 'K']
+    .filter((g) => filter === 'all' || filter === g)
+    .map((g) => ({
+      g,
+      items: cws.flatMap((cw) => {
+        const code = codeFor(cw, g);
+        return code ? [{ cw, g, code }] : [];
+      }),
+    }))
+    .filter((r) => r.items.length);
+}
+
+function pickItem(rows, s) {
+  const all = rows.flatMap((r) => r.items);
+  return (
+    (s && all.find((i) => i.cw.code === s.code && i.g === s.g)) ||
+    (s && all.find((i) => i.cw.code === s.code)) ||
+    all[0]
+  );
+}
+
+function SwatchRows({ rows, cur, onSelect }) {
+  return (
+    <div className="lu-rows">
+      {rows.map((r) => (
+        <div key={r.g} className="lu-row">
+          <span className="lu-row__label">{GLABEL[r.g]}</span>
+          <div className="lu-swatches" role="group" aria-label={`${GLABEL[r.g]} colours`}>
+            {r.items.map((it) => (
+              <button
+                key={it.code}
+                className="lu-sw"
+                aria-pressed={it.code === cur.code}
+                title={`${it.cw.colour} — ${GLABEL[it.g]}`}
+                onClick={() => onSelect(it)}
+              >
+                <Img src={it.cw.imgs[0]} alt={`${it.cw.colour} ${GLABEL[it.g]}`} />
+              </button>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function Selected({ item, dark }) {
+  return (
+    <div className={`lu-cwname${dark ? ' lu-cwname--dark' : ''}`}>
+      <b>{item.cw.colour}</b>
+      <span className="lu-gpill">
+        {GLABEL[item.g]} · {item.code}
+      </span>
+    </div>
+  );
+}
 
 function Img({ src, alt = '' }) {
   return src ? <img src={src} alt={alt} loading="lazy" /> : <span className="lu-ph">{L.noImg}</span>;
@@ -39,38 +107,18 @@ function Price({ cw }) {
   );
 }
 
-function Card({ m, cws, cur, onSelect, onOpen }) {
+function Card({ m, rows, item, onSelect, onOpen }) {
+  const cur = item.cw;
   return (
     <article className="lu-card">
-      <button className="lu-photo" onClick={onOpen} aria-label={m.name}>
+      <button className="lu-photo" onClick={onOpen} aria-label={`${m.name} — details`}>
         <Img src={cur.imgs[0]} alt={`${m.name} ${cur.colour}`} />
       </button>
       <div className="lu-body">
         <h3 className="lu-name">{m.name}</h3>
         {m.tagline && <p className="lu-tag">{m.tagline}</p>}
-        <div className="lu-swatches" role="group">
-          {cws.map((c) => (
-            <button
-              key={c.code}
-              className="lu-sw"
-              aria-pressed={c.code === cur.code}
-              title={`${c.colour} (${L.g[c.g]})`}
-              onClick={() => onSelect(c.code)}
-            >
-              <Img src={c.imgs[0]} />
-              <i>{c.g}</i>
-            </button>
-          ))}
-        </div>
-        <div className="lu-cwname">
-          <b>{cur.colour}</b>
-          <span className="lu-gpill">{L.g[cur.g]}</span>
-          {cur.codes.map((c) => (
-            <span key={c} className="lu-gpill">
-              {c}
-            </span>
-          ))}
-        </div>
+        <SwatchRows rows={rows} cur={item} onSelect={onSelect} />
+        <Selected item={item} />
         <Price cw={cur} />
         <button className="lu-more" onClick={onOpen}>
           {L.more}
@@ -91,8 +139,7 @@ function RangeList({ rows, want }) {
           <span className="lu-gps">
             {GS.filter((g) => g in r && want(r[g])).map((g) => (
               <span key={g} className={`lu-gp ${KIND[r[g]] || 'n'}`}>
-                {g}
-                {r[g] ? ` · ${KIND_LABEL[r[g]]}` : ''}
+                {GLABEL[g]}
               </span>
             ))}
           </span>
@@ -102,7 +149,8 @@ function RangeList({ rows, want }) {
   );
 }
 
-function Detail({ m, cur, onSelect, onClose }) {
+function Detail({ m, rows, item, onSelect, onClose }) {
+  const cur = item.cw;
   const ref = useRef(null);
   const [img, setImg] = useState(0);
 
@@ -110,7 +158,7 @@ function Detail({ m, cur, onSelect, onClose }) {
     const d = ref.current;
     if (d && !d.open) d.showModal();
   }, []);
-  useEffect(() => setImg(0), [cur.code]);
+  useEffect(() => setImg(0), [item.code]);
 
   const close = () => {
     if (ref.current?.open) ref.current.close();
@@ -118,7 +166,7 @@ function Detail({ m, cur, onSelect, onClose }) {
   };
 
   const en = m.en || {};
-  const fit = en.fitW ? `W ${fitText(en.fitW)} / M ${fitText(en.fitM)}` : fitText(en.fit);
+  const fit = en.fitW ? `Women's: ${fitText(en.fitW)} / Men's: ${fitText(en.fitM)}` : fitText(en.fit);
   const specs = [
     [L.sole, en.sole && `${en.sole}mm`],
     [L.tread, en.tread !== undefined && en.tread !== '' && `${en.tread}mm`],
@@ -157,27 +205,8 @@ function Detail({ m, cur, onSelect, onClose }) {
               </button>
             ))}
           </div>
-          <div className="lu-swatches">
-            {m.cw.map((c) => (
-              <button
-                key={c.code}
-                className="lu-sw"
-                aria-pressed={c.code === cur.code}
-                title={`${c.colour} (${L.g[c.g]})`}
-                onClick={() => onSelect(c.code)}
-              >
-                <Img src={c.imgs[0]} />
-                <i>{c.g}</i>
-              </button>
-            ))}
-          </div>
-          <div className="lu-cwname lu-cwname--dark">
-            <b>{cur.colour}</b>
-            <span>
-              {L.g[cur.g]} · {cur.code}
-            </span>
-            <span className={`lu-kind ${KIND[cur.status]}`}>{KIND_LABEL[cur.status]}</span>
-          </div>
+          <SwatchRows rows={rows} cur={item} onSelect={onSelect} />
+          <Selected item={item} dark />
         </div>
 
         <div className="lu-info">
@@ -249,9 +278,8 @@ function Detail({ m, cur, onSelect, onClose }) {
   );
 }
 
-export default function Lineup() {
+export default function Lineup({ cat, setCat }) {
   const [g, setG] = useState('all');
-  const [cat, setCat] = useState('all');
   const [q, setQ] = useState('');
   const [sel, setSel] = useState({}); // model name -> selected colourway code
   const [openName, setOpenName] = useState(null);
@@ -272,7 +300,7 @@ export default function Lineup() {
       if (!gMatch(cw.g, g)) return false;
       if (cat !== 'all' && m.cat !== cat) return false;
       if (!words.length) return true;
-      const hay = [m.name, cw.colour, cw.code, cw.g === 'MW' ? 'men women' : L.g[cw.g]]
+      const hay = [m.name, cw.colour, cw.code, cw.g === 'MW' ? "men women men's women's" : `${L.g[cw.g]} ${GLABEL[cw.g]}`]
         .join(' ')
         .toLowerCase();
       return words.every((w) => hay.includes(w));
@@ -287,8 +315,7 @@ export default function Lineup() {
 
   const nM = groups.reduce((a, x) => a + x.items.length, 0);
   const nC = groups.reduce((a, x) => a + x.items.reduce((b, i) => b + i.cws.length, 0), 0);
-  const curOf = (m, cws) => cws.find((c) => c.code === sel[m.name]) || cws[0];
-  const pick = (name, code) => setSel((s) => ({ ...s, [name]: code }));
+  const pick = (name, it) => setSel((s) => ({ ...s, [name]: { code: it.cw.code, g: it.g } }));
   const openModel = openName && LINEUP.find((m) => m.name === openName);
 
   return (
@@ -296,9 +323,9 @@ export default function Lineup() {
       <div className="container">
         <header className="lu-top">
           <div>
-            <p className="lu-eyebrow">Barefoot Inc · Vivobarefoot · Thailand</p>
+            <p className="lu-eyebrow">In stock now · Barefootinc Flagship Store, K Village</p>
             <h2 className="h-section">Lineup</h2>
-            <p className="lu-tabnote">{L.noteStore}</p>
+            <p className="lu-tabnote">{NOTE}</p>
           </div>
           <div className="lu-stats">
             <div className="lu-stat">
@@ -360,16 +387,19 @@ export default function Lineup() {
                 </small>
               </h3>
               <div className="lu-grid">
-                {items.map(({ m, cws }) => (
-                  <Card
-                    key={m.name}
-                    m={m}
-                    cws={cws}
-                    cur={curOf(m, cws)}
-                    onSelect={(code) => pick(m.name, code)}
-                    onOpen={() => setOpenName(m.name)}
-                  />
-                ))}
+                {items.map(({ m, cws }) => {
+                  const rows = genderRows(cws, g);
+                  return (
+                    <Card
+                      key={m.name}
+                      m={m}
+                      rows={rows}
+                      item={pickItem(rows, sel[m.name])}
+                      onSelect={(it) => pick(m.name, it)}
+                      onOpen={() => setOpenName(m.name)}
+                    />
+                  );
+                })}
               </div>
             </div>
           ))
@@ -381,8 +411,9 @@ export default function Lineup() {
       {openModel && (
         <Detail
           m={openModel}
-          cur={curOf(openModel, openModel.cw)}
-          onSelect={(code) => pick(openModel.name, code)}
+          rows={genderRows(openModel.cw)}
+          item={pickItem(genderRows(openModel.cw), sel[openModel.name])}
+          onSelect={(it) => pick(openModel.name, it)}
           onClose={() => setOpenName(null)}
         />
       )}
