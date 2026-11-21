@@ -8,7 +8,7 @@ export default function LineButton() {
       href={STORE.lineUrl}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Add Barefootinc K Village on LINE"
+      aria-label="Add our K Village store on LINE"
     >
       <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
         <path

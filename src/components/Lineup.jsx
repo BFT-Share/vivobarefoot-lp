@@ -323,7 +323,7 @@ export default function Lineup({ cat, setCat }) {
       <div className="container">
         <header className="lu-top">
           <div>
-            <p className="lu-eyebrow">In stock now · Barefootinc Flagship Store, K Village</p>
+            <p className="lu-eyebrow">In stock now · K Village, Bangkok</p>
             <h2 className="h-section">Lineup</h2>
             <p className="lu-tabnote">{NOTE}</p>
           </div>

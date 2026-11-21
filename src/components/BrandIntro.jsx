@@ -23,9 +23,9 @@ export default function BrandIntro() {
               the human foot — so the shoe gets out of its way.
             </p>
             <p>
-              After years of one-off imports, the range is finally on the shelf here.
-              Barefootinc at K Village is the official Vivobarefoot store in Thailand,
-              with the full line-up to try on and a team who will fit you properly.
+              After years of one-off imports, VIVOBAREFOOT is finally on the shelf here.
+              Our K Village store is the official Vivobarefoot store in Thailand, with
+              a selected range to try on and a team who will fit you properly.
             </p>
 
             <div className="intro__bcorp">
