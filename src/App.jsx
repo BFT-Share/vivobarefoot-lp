@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Lineup from './components/Lineup';
@@ -25,6 +26,7 @@ export default function App() {
       </main>
       <Footer />
       <LineButton />
+      <Analytics />
     </>
   );
 }
