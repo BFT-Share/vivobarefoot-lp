@@ -23,10 +23,6 @@ const ITEMS = [
     q: 'Can I try VIVOBAREFOOT on in Bangkok?',
     a: 'Yes. Our store at K Village, Sukhumvit 26, is the official VIVOBAREFOOT store in Thailand. A selected range is in stock to try on, seven days a week — the Lineup above shows what is on the shelf.',
   },
-  {
-    q: 'What does it mean that VIVOBAREFOOT is a B Corp?',
-    a: 'B Corp certification means the business is independently verified against high standards of social and environmental performance, transparency and accountability. In practice that shows up as natural materials, recycled plastics and bio-based foams in the products.',
-  },
 ];
 
 export default function FAQ() {
