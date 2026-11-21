@@ -4,10 +4,10 @@ const COLUMNS = [
   {
     title: 'Shop',
     links: [
-      { label: 'The line up', id: 'shop' },
-      { label: 'Live', id: 'shop' },
-      { label: 'Train', id: 'shop' },
-      { label: 'Trail', id: 'shop' },
+      { label: 'The line up', id: 'lineup' },
+      { label: 'Live', id: 'lineup' },
+      { label: 'Train', id: 'lineup' },
+      { label: 'Trail', id: 'lineup' },
     ],
   },
   {
@@ -35,15 +35,6 @@ export default function Footer() {
         <div className="footer__top">
           <div className="footer__brand">
             <div className="footer__lockup">
-              <img
-                className="footer__retailer"
-                src="/logo.png"
-                alt="Barefootinc Thailand"
-                width="150"
-                height="34"
-                loading="lazy"
-              />
-              <span className="footer__rule" aria-hidden="true" />
               <img
                 className="footer__vivo"
                 src="/brand/vivo-wordmark-white.png"

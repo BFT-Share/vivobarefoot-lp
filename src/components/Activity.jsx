@@ -21,11 +21,14 @@ const TILES = [
   },
 ];
 
-export default function Activity({ setTab }) {
+// Activity tile -> Lineup category filter
+const CAT = { live: 'everyday', train: 'training', trail: 'trail' };
+
+export default function Activity({ setCat }) {
   const pick = (e, id) => {
     e.preventDefault();
-    setTab(id);
-    scrollToId(null, 'shop');
+    setCat(CAT[id]);
+    scrollToId(null, 'lineup');
   };
 
   return (
@@ -34,7 +37,7 @@ export default function Activity({ setTab }) {
         <h2 className="h-section h-section--center">Select by activity</h2>
         <div className="grid grid--tiles">
           {TILES.map((t) => (
-            <a key={t.id} className="tile" href="#shop" onClick={(e) => pick(e, t.id)}>
+            <a key={t.id} className="tile" href="#lineup" onClick={(e) => pick(e, t.id)}>
               <div className="tile__media">
                 <img src={t.img} alt="" loading="lazy" />
               </div>

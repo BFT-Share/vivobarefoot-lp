@@ -46,20 +46,17 @@ export default function Header() {
         <div className="header__inner">
           <a className="header__brand" href="#top" onClick={(e) => go(e, 'top')}>
             <img
-              className="header__retailer"
-              src="/logo.png"
-              alt="Barefootinc Thailand"
-              width="150"
-              height="34"
-            />
-            <span className="header__rule" aria-hidden="true" />
-            <img
               className="lockup__mark"
               src="/brand/vivo-wordmark.png"
               alt="VIVOBAREFOOT"
               width="122"
               height="22"
             />
+            <span className="header__rule" aria-hidden="true" />
+            <span className="header__store">
+              Available at
+              <b>K Village, Bangkok</b>
+            </span>
           </a>
 
           <nav className="header__nav" aria-label="Main">

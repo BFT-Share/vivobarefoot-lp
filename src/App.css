@@ -133,6 +133,135 @@
   color: var(--black);
 }
 
+.btn--light {
+  background: var(--white);
+  color: var(--black);
+  border-color: var(--white);
+}
+
+.btn--light:hover {
+  background: transparent;
+  color: var(--white);
+}
+
+/* ==================================================================
+   K Village store elements (hero copy, access, LINE button)
+   ================================================================== */
+
+.hero__badge {
+  display: inline-block;
+  margin-bottom: 18px;
+  padding: 6px 14px;
+  background: var(--white);
+  color: var(--black);
+  font-family: var(--font-display);
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.hero__store {
+  max-width: 560px;
+  margin-top: 20px;
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  line-height: 1.45;
+  text-shadow: 0 1px 16px rgba(0, 0, 0, 0.45);
+}
+
+.hero__store b {
+  font-weight: 600;
+}
+
+.store__access {
+  margin-top: 4px;
+  font-size: 14px;
+  color: var(--ink-muted);
+}
+
+.store__photos {
+  display: grid;
+  gap: 16px;
+}
+
+.store__tiles {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.store__tile {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  background: var(--paper-alt);
+  cursor: zoom-in;
+}
+
+.store__tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--t);
+}
+
+.store__tile:hover img {
+  transform: scale(1.04);
+}
+
+.store__tile span {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  padding: 5px 10px;
+  background: rgba(0, 0, 0, 0.75);
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.line-float {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 60;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px 12px 14px;
+  border-radius: 999px;
+  background: #06c755;
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  transition: transform var(--t-fast);
+}
+
+.line-float:hover {
+  transform: translateY(-2px);
+}
+
+.line-float svg {
+  width: 26px;
+  height: 26px;
+}
+
+@media (max-width: 600px) {
+  .line-float span {
+    display: none;
+  }
+  .line-float {
+    padding: 13px;
+  }
+}
+
 /* ==================================================================
    Announcement bar + header
    ================================================================== */
@@ -187,9 +316,21 @@
   flex-shrink: 0;
 }
 
-.header__retailer {
-  width: auto;
-  height: 26px;
+.header__store {
+  display: flex;
+  flex-direction: column;
+  font-size: 11px;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  white-space: nowrap;
+}
+
+.header__store b {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--black);
 }
 
 .header__rule {
@@ -211,8 +352,11 @@
   .header__brand {
     gap: 10px;
   }
-  .header__retailer {
-    height: 22px;
+  .header__store {
+    font-size: 10px;
+  }
+  .header__store b {
+    font-size: 12px;
   }
   .lockup__mark {
     height: 18px;
@@ -1445,17 +1589,6 @@
   align-items: center;
   gap: 16px;
   flex-wrap: wrap;
-}
-
-.footer__retailer {
-  height: 28px;
-  width: auto;
-}
-
-.footer__rule {
-  width: 1px;
-  height: 26px;
-  background: rgba(255, 255, 255, 0.3);
 }
 
 .footer__vivo {
