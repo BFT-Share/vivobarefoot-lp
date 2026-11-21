@@ -90,15 +90,6 @@ export default function Footer() {
                 </a>
               </li>
             </ul>
-
-            <img
-              className="footer__bcorp"
-              src="/brand/bcorp-white.png"
-              alt="Certified B Corporation"
-              width="72"
-              height="45"
-              loading="lazy"
-            />
           </div>
 
           {COLUMNS.map((col) => (
