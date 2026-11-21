@@ -1,4 +1,4 @@
-import { scrollToId } from '../lib/nav';
+import { HEADER_OFFSET, scrollToId } from '../lib/nav';
 
 const TILES = [
   {
@@ -21,14 +21,21 @@ const TILES = [
   },
 ];
 
-// Activity tile -> Lineup category filter
+// Activity tile -> matching category heading inside Lineup
 const CAT = { live: 'everyday', train: 'training', trail: 'trail' };
 
-export default function Activity({ setCat }) {
+export default function Activity() {
   const pick = (e, id) => {
     e.preventDefault();
-    setCat(CAT[id]);
-    scrollToId(null, 'lineup');
+    const el = document.getElementById(`lineup-${CAT[id]}`);
+    if (!el) {
+      scrollToId(null, 'lineup');
+      return;
+    }
+    // Land the heading just below the header and Lineup's sticky filter bar.
+    const bar = document.querySelector('.lu-bar');
+    const offset = HEADER_OFFSET + (bar ? bar.offsetHeight : 0) + 12;
+    window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - offset, behavior: 'smooth' });
   };
 
   return (

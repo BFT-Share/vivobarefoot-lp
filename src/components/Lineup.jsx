@@ -278,7 +278,7 @@ function Detail({ m, rows, item, onSelect, onClose }) {
   );
 }
 
-export default function Lineup({ cat, setCat }) {
+export default function Lineup() {
   const [g, setG] = useState('all');
   const [q, setQ] = useState('');
   const [sel, setSel] = useState({}); // model name -> selected colourway code
@@ -298,7 +298,6 @@ export default function Lineup({ cat, setCat }) {
     const words = q.trim().toLowerCase().split(/\s+/).filter(Boolean);
     const match = (m, cw) => {
       if (!gMatch(cw.g, g)) return false;
-      if (cat !== 'all' && m.cat !== cat) return false;
       if (!words.length) return true;
       const hay = [m.name, cw.colour, cw.code, cw.g === 'MW' ? "men women men's women's" : `${L.g[cw.g]} ${GLABEL[cw.g]}`]
         .join(' ')
@@ -311,7 +310,7 @@ export default function Lineup({ cat, setCat }) {
         .map((m) => ({ m, cws: m.cw.filter((cw) => match(m, cw)) }))
         .filter((x) => x.cws.length),
     })).filter((x) => x.items.length);
-  }, [g, cat, q]);
+  }, [g, q]);
 
   const nM = groups.reduce((a, x) => a + x.items.length, 0);
   const nC = groups.reduce((a, x) => a + x.items.reduce((b, i) => b + i.cws.length, 0), 0);
@@ -353,16 +352,6 @@ export default function Lineup({ cat, setCat }) {
               </button>
             ))}
           </div>
-          <div className="lu-seg">
-            <button aria-pressed={cat === 'all'} onClick={() => setCat('all')}>
-              {L.allCats}
-            </button>
-            {CATS.map((c) => (
-              <button key={c} aria-pressed={cat === c} onClick={() => setCat(c)}>
-                {CATNAME[c]}
-              </button>
-            ))}
-          </div>
           <label className="lu-search">
             <input
               type="search"
@@ -379,7 +368,7 @@ export default function Lineup({ cat, setCat }) {
 
         {groups.length ? (
           groups.map(({ cat: c, items }) => (
-            <div className="lu-cat" key={c}>
+            <div className="lu-cat" key={c} id={`lineup-${c}`}>
               <h3 className="lu-cath">
                 {CATNAME[c]}
                 <small>
