@@ -27,21 +27,6 @@ export default function BrandIntro() {
               Our K Village store is the official Vivobarefoot store in Thailand, with
               a selected range to try on and a team who will fit you properly.
             </p>
-
-            <div className="intro__bcorp">
-              <img
-                src="/brand/bcorp-black.png"
-                alt="Certified B Corporation"
-                width="66"
-                height="42"
-                loading="lazy"
-              />
-              <p>
-                Vivobarefoot is a Certified B Corporation — independently verified
-                against standards for social and environmental performance,
-                transparency and accountability.
-              </p>
-            </div>
           </div>
         </div>
       </div>
