@@ -114,8 +114,8 @@ export const LINEUP = [
       },
       {
         "name": "Sand/Fig",
-        "W": "stock",
-        "M": "stock"
+        "W": "",
+        "M": ""
       },
       {
         "name": "Limestone/Seaborne",
@@ -185,19 +185,6 @@ export const LINEUP = [
           "/lineup/309123-07_back.jpg",
           "/lineup/309123-07_inside.jpg"
         ],
-        "status": "stock",
-        "unlisted": true
-      },
-      {
-        "code": "209123-05 / 309123-05",
-        "codes": [
-          "209123-05",
-          "309123-05"
-        ],
-        "g": "MW",
-        "price": 5990,
-        "colour": "Sand/Fig",
-        "imgs": [],
         "status": "stock",
         "unlisted": true
       }
