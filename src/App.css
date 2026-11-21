@@ -1363,10 +1363,6 @@
   display: block;
 }
 
-.store__lede {
-  max-width: 46ch;
-}
-
 .store__details {
   margin-top: 28px;
   border-top: 1px solid var(--line);

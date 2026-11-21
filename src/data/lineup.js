@@ -1065,7 +1065,7 @@ export const LINEUP_TEXT = {
   "kids": "Kids",
   "allG": "All",
   "allCats": "All categories",
-  "search": "Model, colour or code",
+  "search": "Model or colour",
   "cat": {
     "training": "Gym, strength and cross-training",
     "running": "Road and treadmill running",
