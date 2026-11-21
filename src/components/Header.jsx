@@ -38,7 +38,7 @@ export default function Header() {
         <p>
           <span>Vivobarefoot is now available in Thailand</span>
           <span className="announce__dash"> - </span>
-          <span className="announce__wrap">Barefootinc @ K Village, Bangkok</span>
+          <span className="announce__wrap">K Village, Sukhumvit 26, Bangkok</span>
         </p>
       </div>
 

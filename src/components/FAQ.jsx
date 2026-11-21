@@ -21,7 +21,7 @@ const ITEMS = [
   },
   {
     q: 'Can I try VIVOBAREFOOT on in Bangkok?',
-    a: 'Yes. Barefootinc at K Village, Sukhumvit 26, is the official VIVOBAREFOOT store in Thailand. The full range is in stock to try on, seven days a week.',
+    a: 'Yes. Our store at K Village, Sukhumvit 26, is the official VIVOBAREFOOT store in Thailand. A selected range is in stock to try on, seven days a week — the Lineup above shows what is on the shelf.',
   },
   {
     q: 'What does it mean that VIVOBAREFOOT is a B Corp?',

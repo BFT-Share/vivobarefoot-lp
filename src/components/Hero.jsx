@@ -14,8 +14,7 @@ export default function Hero() {
         <p className="hero__badge">Now in store · K Village, Bangkok</p>
         <h1 className="hero__title">Free your feet</h1>
         <p className="hero__store">
-          VIVOBAREFOOT is available at <b>Barefootinc Flagship Store</b>, K Village on
-          Sukhumvit soi 26 (around 1km from BTS Phrom Phong station). Come in and try
+          VIVOBAREFOOT is available at our <b>K Village store</b> on Sukhumvit soi 26 (around 1km from BTS Phrom Phong station). Come in and try
           them on.
         </p>
         <div className="hero__cta">

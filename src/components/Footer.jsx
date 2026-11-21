@@ -46,9 +46,8 @@ export default function Footer() {
             </div>
 
             <p>
-              Barefootinc is the official VIVOBAREFOOT distributor in Thailand.
-              Wide, thin and flexible footwear, and the people to help you move in
-              it.
+              VIVOBAREFOOT in Thailand, at K Village, Sukhumvit 26, Bangkok. Wide,
+              thin and flexible footwear, and the people to help you move in it.
             </p>
 
             <a
@@ -66,7 +65,7 @@ export default function Footer() {
                   href={STORE.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="Barefootinc on Instagram"
+                  aria-label="Our K Village store on Instagram"
                 >
                   <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                     <rect x="2.5" y="2.5" width="19" height="19" rx="5.4" />
@@ -80,7 +79,7 @@ export default function Footer() {
                   href={STORE.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="Barefootinc on Facebook"
+                  aria-label="Our K Village store on Facebook"
                 >
                   <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                     <path
