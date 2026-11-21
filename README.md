@@ -3,6 +3,7 @@
 VIVOBAREFOOT のタイ取扱いランディングページ。
 本番: https://vivobarefoot-lp.vercel.app/
 
+- リポジトリ: `BFT-Share/vivobarefoot-lp`
 - ホスティング: Vercel / チーム **SHIMA's projects** (`shima-s-projects2`)
 - フレームワーク: Vite + React
 
