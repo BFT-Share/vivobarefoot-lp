@@ -1688,13 +1688,6 @@
   fill: var(--black);
 }
 
-.footer__bcorp {
-  display: block;
-  margin-top: 26px;
-  width: 140px;
-  height: auto;
-}
-
 .footer__col h3 {
   font-size: 15px;
   letter-spacing: 0.04em;
