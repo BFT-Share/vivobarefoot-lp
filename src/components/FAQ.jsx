@@ -1,67 +1,88 @@
-import React, { useState } from 'react';
-import '../App.css';
+import { useState } from 'react';
+import Modal from './Modal';
 
-const FAQ = () => {
-  const [activeIndex, setActiveIndex] = useState(null);
+const ITEMS = [
+  {
+    q: 'How do I transition to barefoot shoes safely?',
+    a: 'Treat it like any other training load. If you have spent years in cushioned, narrow shoes, your feet need time to rebuild. Start with 30 to 60 minutes a day of casual walking, and build up over four to eight weeks. Hold off on long runs and heavy sessions until your calves, arches and Achilles have adapted.',
+  },
+  {
+    q: 'Why do Vivos feel so much wider than my normal shoes?',
+    a: 'That is the point. A wide toe box lets your toes spread and do their job of balancing you. Over time your toes will splay and your footprint will widen. Leave roughly a thumb’s width — 12 to 15 mm — in front of your longest toe so the foot can move forward as you walk.',
+  },
+  {
+    q: 'What size should I buy?',
+    a: 'Barefoot sizing rarely matches your usual size, and it varies by model. Measure both feet from heel to longest toe and compare against the chart — then add roughly a thumb’s width of room. Better still, come to the store in K Village and we will measure you and fit you properly. It takes about fifteen minutes and saves a return.',
+    sizeChart: true,
+  },
+  {
+    q: 'Are barefoot shoes suitable for running and the gym?',
+    a: 'Yes. Primus Lite and Motus Strength are built for functional fitness, strength training and road running, and Primus Trail for off-road. Ground feedback improves your movement skill and ankle strength — just build the volume up gradually.',
+  },
+  {
+    q: 'Can I try VIVOBAREFOOT on in Bangkok?',
+    a: 'Yes. Barefootinc at K Village, Sukhumvit 26, is the official VIVOBAREFOOT store in Thailand. The full range is in stock to try on, seven days a week.',
+  },
+  {
+    q: 'What does it mean that VIVOBAREFOOT is a B Corp?',
+    a: 'B Corp certification means the business is independently verified against high standards of social and environmental performance, transparency and accountability. In practice that shows up as natural materials, recycled plastics and bio-based foams in the products.',
+  },
+];
 
-  const faqData = [
-    {
-      question: "How do I safely transition to barefoot shoes?",
-      answer: "Transitioning is a journey. If you have worn cushioned, narrow shoes for years, your feet need time to rebuild strength. Start by wearing Vivos for 30-60 minutes daily for casual walking. Gradually increase this over 4 to 8 weeks. Do not jump straight into long runs or heavy workouts until your calves and arches adapt."
-    },
-    {
-      question: "Why do Vivos feel much wider than my normal shoes?",
-      answer: "That is by design! The wide toe box gives your toes the space they need to spread out and balance you. Over time, your toes will naturally splay, widening your footprint. We recommend leaving about a thumb's width (12mm to 15mm) of space at the front of the toes for natural forward motion."
-    },
-    {
-      question: "Are barefoot shoes good for running and gym workouts?",
-      answer: "Absolutely. Our Active collection (like the Primus Lite and Motus Strength) is designed exactly for functional fitness, road running, and training. Barefoot shoes improve ground feedback, strengthen ankles, and reduce injury risk by training your natural posture."
-    },
-    {
-      question: "Where can I try on VIVOBarefoot in Bangkok?",
-      answer: "You can try our entire range at the Barefootinc Flagship Store in K Village (Sukhumvit 26), Bangkok. Our specialists can help measure your feet, determine your correct barefoot size, and guide you on the transition process."
-    },
-    {
-      question: "What does it mean that VIVOBarefoot is a B Corp?",
-      answer: "B Corp certification means we meet high verified standards of social and environmental performance, transparency, and accountability. We prioritize planetary health by using natural materials, recycled plastics, and algae-bloom foam in our products."
-    }
-  ];
-
-  const toggleFAQ = (index) => {
-    setActiveIndex(activeIndex === index ? null : index);
-  };
+export default function FAQ() {
+  const [open, setOpen] = useState(0);
+  const [sizeChart, setSizeChart] = useState(false);
 
   return (
-    <section id="faq" className="section faq">
-      <div className="animate-fade-in">
-        <h2 className="section-title">Common Questions</h2>
-        <p className="section-subtitle">
-          Transitioning to natural movement can raise questions. Here are the answers to help you start your barefoot journey.
-        </p>
+    <section className="section faq" id="faq">
+      <div className="container container--narrow">
+        <h2 className="h-section h-section--center">Common questions</h2>
+
+        <div className="faq__list">
+          {ITEMS.map((item, i) => {
+            const isOpen = open === i;
+            return (
+              <div className={`faq__item${isOpen ? ' is-open' : ''}`} key={item.q}>
+                <button
+                  className="faq__q"
+                  aria-expanded={isOpen}
+                  onClick={() => setOpen(isOpen ? -1 : i)}
+                >
+                  <span>{item.q}</span>
+                  <span className="faq__sign" aria-hidden="true" />
+                </button>
+                <div className="faq__a">
+                  <div className="faq__aInner">
+                    <p>{item.a}</p>
+                    {item.sizeChart && (
+                      <button
+                        className="btn btn--outline btn--sm faq__chart"
+                        onClick={() => setSizeChart(true)}
+                      >
+                        Check the size chart
+                      </button>
+                    )}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
 
-      <div className="faq-container">
-        {faqData.map((item, index) => (
-          <div 
-            key={index} 
-            className={`faq-item ${activeIndex === index ? 'active' : ''}`}
-          >
-            <button 
-              className="faq-question-btn" 
-              onClick={() => toggleFAQ(index)}
-              aria-expanded={activeIndex === index}
-            >
-              <span>{item.question}</span>
-              <span className="faq-icon-toggle">+</span>
-            </button>
-            <div className="faq-answer">
-              <p>{item.answer}</p>
-            </div>
-          </div>
-        ))}
-      </div>
+      <Modal
+        open={sizeChart}
+        onClose={() => setSizeChart(false)}
+        label="VIVOBAREFOOT size guide"
+        wide
+        image
+      >
+        <img
+          className="modal__image"
+          src="/img/size-guide.jpg"
+          alt="VIVOBAREFOOT footwear size guide, men's and women's"
+        />
+      </Modal>
     </section>
   );
-};
-
-export default FAQ;
+}
