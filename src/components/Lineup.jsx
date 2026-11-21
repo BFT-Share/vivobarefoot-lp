@@ -81,9 +81,7 @@ function Selected({ item, dark }) {
   return (
     <div className={`lu-cwname${dark ? ' lu-cwname--dark' : ''}`}>
       <b>{item.cw.colour}</b>
-      <span className="lu-gpill">
-        {GLABEL[item.g]} · {item.code}
-      </span>
+      <span className="lu-gpill">{GLABEL[item.g]}</span>
     </div>
   );
 }
