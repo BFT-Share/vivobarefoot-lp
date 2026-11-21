@@ -181,19 +181,22 @@
 .store__photos {
   display: grid;
   gap: 16px;
+  min-width: 0;
 }
 
+/* Photos keep their own aspect ratio and share one row height: each tile
+   grows in proportion to its width/height ratio (--ar), so nothing is cropped. */
 .store__tiles {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
   gap: 16px;
 }
 
 .store__tile {
   position: relative;
   display: block;
-  width: 100%;
-  aspect-ratio: 3 / 4;
+  flex: var(--ar) 1 0;
+  min-width: 0;
+  aspect-ratio: var(--ar);
   padding: 0;
   border: 0;
   overflow: hidden;
@@ -204,18 +207,28 @@
 .store__tile img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  transition: transform var(--t);
+  object-fit: contain;
+  transition: opacity var(--t);
 }
 
 .store__tile:hover img {
-  transform: scale(1.04);
+  opacity: 0.85;
+}
+
+@media (max-width: 600px) {
+  .store__tiles {
+    flex-direction: column;
+  }
+  .store__tile {
+    flex: none;
+    width: 100%;
+  }
 }
 
 .store__tile span {
   position: absolute;
-  left: 10px;
-  top: 10px;
+  left: 8px;
+  bottom: 8px;
   padding: 5px 10px;
   background: rgba(0, 0, 0, 0.75);
   color: var(--white);
