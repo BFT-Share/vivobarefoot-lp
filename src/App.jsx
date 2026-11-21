@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import BrandIntro from './components/BrandIntro';
 import ProductRail from './components/ProductRail';
+import Lineup from './components/Lineup';
 import Activity from './components/Activity';
 import Benefits from './components/Benefits';
 import FitFeelFlex from './components/FitFeelFlex';
@@ -21,6 +22,7 @@ export default function App() {
         <Hero />
         <BrandIntro />
         <ProductRail tab={tab} setTab={setTab} />
+        <Lineup />
         <Activity setTab={setTab} />
         <Benefits />
         <FitFeelFlex />

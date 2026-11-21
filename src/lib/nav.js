@@ -1,5 +1,6 @@
 export const NAV = [
   { id: 'shop', label: 'Products' },
+  { id: 'lineup', label: 'Lineup' },
   { id: 'why', label: 'Why Barefoot' },
   { id: 'visit', label: 'Visit Us' },
   { id: 'faq', label: 'FAQ' },
