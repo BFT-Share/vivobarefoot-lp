@@ -1,6 +1,5 @@
 import Header from './components/Header';
 import Hero from './components/Hero';
-import BrandIntro from './components/BrandIntro';
 import Lineup from './components/Lineup';
 import Activity from './components/Activity';
 import Benefits from './components/Benefits';
@@ -17,7 +16,6 @@ export default function App() {
       <Header />
       <main>
         <Hero />
-        <BrandIntro />
         <Lineup />
         <Activity />
         <Benefits />
