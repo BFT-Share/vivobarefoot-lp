@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import BrandIntro from './components/BrandIntro';
@@ -13,16 +12,14 @@ import LineButton from './components/LineButton';
 import './App.css';
 
 export default function App() {
-  const [cat, setCat] = useState('all');
-
   return (
     <>
       <Header />
       <main>
         <Hero />
         <BrandIntro />
-        <Lineup cat={cat} setCat={setCat} />
-        <Activity setCat={setCat} />
+        <Lineup />
+        <Activity />
         <Benefits />
         <FitFeelFlex />
         <Store />
