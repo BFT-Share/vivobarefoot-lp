@@ -6,11 +6,13 @@ const PHOTOS = {
   front: {
     src: '/img/store-front.jpg',
     label: 'Store front',
+    ratio: 1023 / 1364,
     alt: 'Barefootinc Flagship Store front at K Village, Bangkok',
   },
   map: {
     src: '/img/store-map.jpg',
     label: 'Floor map',
+    ratio: 1800 / 1044,
     alt: 'K Village floor plan showing the Barefootinc store on the 1st floor of Building B',
   },
 };
@@ -111,6 +113,7 @@ export default function Store() {
                 <button
                   key={key}
                   className="store__tile"
+                  style={{ '--ar': p.ratio }}
                   onClick={() => setPhoto(key)}
                   aria-label={`Enlarge ${p.label.toLowerCase()}`}
                 >
