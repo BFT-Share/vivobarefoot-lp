@@ -56,6 +56,13 @@
   letter-spacing: -0.02em;
 }
 
+/* On phones the display headings wrap to two lines; open the leading slightly. */
+@media (max-width: 767px) {
+  .h-display {
+    line-height: 0.95;
+  }
+}
+
 .footnote {
   margin-top: 24px;
   font-size: 12px;
@@ -597,6 +604,25 @@
   }
   .hero__cta .btn {
     min-width: 0;
+    width: 100%;
+  }
+}
+
+/* Phones: copy at the top, buttons at the bottom, so the shoe in the
+   middle of the portrait photo stays clear of the CTAs. */
+@media (max-width: 767px) {
+  .hero {
+    min-height: 640px;
+    place-items: stretch;
+  }
+  .hero__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-block: 32px 28px;
+  }
+  .hero__cta {
+    margin-top: auto;
     width: 100%;
   }
 }

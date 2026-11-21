@@ -283,6 +283,23 @@ export default function Lineup() {
   const [q, setQ] = useState('');
   const [sel, setSel] = useState({}); // model name -> selected colourway code
   const [openName, setOpenName] = useState(null);
+  const listRef = useRef(null);
+
+  // Filtering while scrolled down the list leaves the viewport on similar-looking
+  // cards, so bring the top of the filtered list up under the sticky filter bar.
+  const chooseGender = (v) => {
+    setG(v);
+    requestAnimationFrame(() => {
+      const list = listRef.current;
+      const bar = document.querySelector('.lu-bar');
+      if (!list || !bar) return;
+      const barBottom = bar.getBoundingClientRect().bottom;
+      const top = list.getBoundingClientRect().top;
+      if (top < barBottom) {
+        window.scrollTo({ top: top + window.scrollY - barBottom - 8, behavior: 'smooth' });
+      }
+    });
+  };
 
   const stats = useMemo(() => {
     const ps = LINEUP.flatMap((m) => m.cw.map((c) => c.price)).filter((p) => p != null);
@@ -347,7 +364,7 @@ export default function Lineup() {
         <div className="lu-bar" role="toolbar">
           <div className="lu-seg">
             {GENDERS.map((x) => (
-              <button key={x.v} aria-pressed={g === x.v} onClick={() => setG(x.v)}>
+              <button key={x.v} aria-pressed={g === x.v} onClick={() => chooseGender(x.v)}>
                 {x.label}
               </button>
             ))}
@@ -366,6 +383,7 @@ export default function Lineup() {
           </span>
         </div>
 
+        <div ref={listRef}>
         {groups.length ? (
           groups.map(({ cat: c, items }) => (
             <div className="lu-cat" key={c} id={`lineup-${c}`}>
@@ -395,6 +413,7 @@ export default function Lineup() {
         ) : (
           <p className="lu-empty">{L.empty}</p>
         )}
+        </div>
       </div>
 
       {openModel && (

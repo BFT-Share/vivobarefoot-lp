@@ -34,7 +34,7 @@
 .lu-bar { position: sticky; top: 92px; z-index: 5; background: var(--lu-bg); border-top: 2px solid var(--lu-ink); border-bottom: 1px solid var(--lu-line); padding-block: 10px; display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: center; }
 .lu-seg { display: inline-flex; background: var(--lu-sunk); border-radius: 8px; padding: 3px; gap: 2px; }
 .lu-seg button { border: 0; background: transparent; padding: 5px 11px; border-radius: 6px; cursor: pointer; font-size: 13px; color: var(--lu-muted); white-space: nowrap; }
-.lu-seg button[aria-pressed='true'] { background: var(--lu-surface); color: var(--lu-ink); font-weight: 500; box-shadow: 0 1px 2px rgba(0, 0, 0, .12); }
+.lu-seg button[aria-pressed='true'] { background: var(--lu-ink); color: var(--lu-surface); font-weight: 600; box-shadow: 0 1px 2px rgba(0, 0, 0, .12); }
 .lu-search { flex: 1 1 180px; max-width: 280px; margin-left: auto; }
 .lu-search input { width: 100%; padding: 7px 11px; border: 1px solid var(--lu-line); border-radius: 8px; background: var(--lu-surface); color: var(--lu-ink); font: inherit; }
 .lu-count { font-family: var(--lu-mono); font-size: 12px; color: var(--lu-muted); }
