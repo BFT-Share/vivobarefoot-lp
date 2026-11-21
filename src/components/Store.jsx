@@ -29,11 +29,6 @@ export default function Store() {
               Try them on
               <span className="store__headBreak">@ K Village</span>
             </h2>
-            <p className="store__lede">
-              Barefoot sizing is not the same as your normal shoe size. Come in, get
-              measured, and let our team walk you through fit, feel and the
-              transition — every model on this page is on the shelf.
-            </p>
 
             <dl className="store__details">
               <div className="store__detail">
