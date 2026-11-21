@@ -37,18 +37,16 @@ npx vercel --prod --yes --scope shima-s-projects2
 
 | ファイル | 中身 |
 |---|---|
-| `src/data/products.js` | 商品名・**価格**・カラー・性別・activity。価格はタイ国内の実売価格 |
-| `src/lib/nav.js` | 住所・営業時間・LINE・SNS・ナビ項目 |
-| `src/components/` | 各セクション（Hero / ProductRail / Store / FAQ / Footer など） |
+| `src/data/lineup.js` | Lineup の商品名・**価格**・カラー・性別・商品コード・説明。店頭の「Vivo Price List」に合わせた在庫ありの一覧 |
+| `src/lib/nav.js` | 住所・営業時間・電話・行き方・LINE・SNS・ナビ項目 |
+| `src/components/` | 各セクション（Hero / Lineup / Store / LineButton / FAQ / Footer など） |
 | `src/App.css` | 全スタイル。デザイントークンは `src/index.css` |
 | `public/img/` | ヒーロー、タイル、サイズチャート、フロアマップ |
-| `public/products/` | 商品写真。`<slug>-1.jpg`〜`-7.jpg` の連番で、`-1` が両足・`-2` が片足 |
+| `public/lineup/` | Lineup の商品写真。`<商品コード>_side/pair/back/inside.jpg` |
 
 ## 気をつけること
 
-- **価格を直すときは `src/data/products.js` だけ**。表示は全てここを参照しています。
-- 商品カードは既定で片足（`-2`）、ホバーで両足（`-1`）を出しています。写真を差し替えるときは
-  向きを他モデルと揃えてください（全モデルつま先が右向き）。
+- **価格を直すときは `src/data/lineup.js` だけ**。Lineup の表示は全てここを参照しています。
 - 見出しは Oswald、本文は IBM Plex Sans Condensed。本家 vivobarefoot.com の Knockout に
   字幅を実測して合わせたものなので、フォントを変えると全体の印象が変わります。
 - 写真は VIVOBAREFOOT のブランドハブ由来。**タイで取り扱っていないモデル**が写ったカットは
