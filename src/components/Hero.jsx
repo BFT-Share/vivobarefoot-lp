@@ -11,6 +11,12 @@ export default function Hero() {
       <div className="hero__scrim" aria-hidden="true" />
 
       <div className="hero__inner container">
+        <img
+          className="hero__logo"
+          src="/brand/vivo-wordmark-white.png"
+          alt="VIVOBAREFOOT"
+          width="300"
+        />
         <p className="hero__badge">Now in store · K Village, Bangkok</p>
         <h1 className="hero__title">Free your feet</h1>
         <p className="hero__store">
